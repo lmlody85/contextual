@@ -42,14 +42,29 @@ This project uses a simplified documentation system optimized for MVPs and inter
 
 ### Feature Documentation Format
 
-Each `FEAT-xxx.md` contains:
+Each `FEAT-xxx.md` uses a hybrid format with required and optional sections.
+
+**Required sections (for all features):**
 - **What**: Feature description
 - **Why**: Problem it solves
-- **How**: Technical implementation
-- **Research References**: Links to relevant research docs
+- **How**: Technical implementation approach and key components
+- **Research References**: Links to relevant research docs (if applicable)
 - **Files Changed**: List of modified files
-- **Known Issues & Resolutions**: Bugs and fixes
-- **TODO**: Remaining work
+- **Known Issues & Resolutions**: Bugs, fixes, and workarounds
+- **TODO**: Remaining work or "Feature complete"
+- **Implementation Notes**: Decisions made, challenges, lessons learned
+
+**Optional sections (add as feature matures):**
+- Requirements (functional, non-functional, edge cases)
+- Data Flow (detailed diagrams/descriptions)
+- API / Interface (public API and configuration)
+- Testing Strategy (unit, integration, manual tests)
+- Dependencies (external libraries and internal modules)
+- Future Improvements
+- Timeline
+- References
+
+See `docs/features/_TEMPLATE.md` for the complete template.
 
 ### Research & Domain Knowledge
 
@@ -90,16 +105,6 @@ Uses [algorithm name] for [purpose].
 - Benchmarks are updated
 - External research informs product decisions
 
-### Code Organization
-```
-/src
-  /api          # Express routes
-  /services     # Business logic
-  /models       # DB models (Prisma)
-  /middleware   # Auth, validation
-  /utils        # Helpers
-```
-
 ### Conventions
 
 **Naming:**
@@ -136,28 +141,10 @@ Uses [algorithm name] for [purpose].
 5. Update research docs if bug reveals new insights
 
 **Adding research/domain knowledge:**
-1. Create `/docs/research/{topic-name}.md`
-2. Use research doc template (see existing research docs)
-3. Update `/docs/research/README.md` index
+1. Copy `/docs/research/_TEMPLATE.md` as starting point
+2. Create `/docs/research/{topic-name}.md` with descriptive name
+3. Update `/docs/research/README.md` index with link
 4. Link from relevant `FEAT-xxx.md` files
-
-**Database changes:**
-```bash
-# Edit schema.prisma
-npm run db:migrate:create
-npm run db:migrate
-```
-
-### Important Patterns
-
-**Multi-tenant data:**
-All queries must include workspace/team scoping.
-
-**Authentication:**
-JWT tokens, middleware in `/src/middleware/auth.ts`
-
-**Error handling:**
-Use standardized error classes in `/src/utils/errors.ts`
 
 ### When in Doubt
 

@@ -22,10 +22,10 @@ Research docs answer the "why" questions:
 
 When you discover important domain knowledge:
 
-1. **Create a new markdown file** in this directory
-2. **Use a descriptive name**: `topic-name.md`
-3. **Add to this README** in the appropriate category below
-4. **Link from feature docs** that use this research
+1. **Copy the template**: Use `_TEMPLATE.md` in this directory as a starting point
+2. **Create a new file**: Save as `topic-name.md` (use descriptive kebab-case name)
+3. **Add to this README**: Link from the appropriate category below
+4. **Link from feature docs**: Reference from relevant `FEAT-xxx.md` files
 
 ---
 
@@ -45,44 +45,6 @@ When you discover important domain knowledge:
 
 ### Domain-Specific
 *Research specific to the problem domain of this project*
-
----
-
-## Research Document Template
-
-```markdown
-# Topic Name
-
-## Summary
-One-paragraph overview of this research.
-
-## Key Findings
-- Finding 1
-- Finding 2
-- Finding 3
-
-## Detailed Analysis
-In-depth exploration of the topic.
-
-### Subtopic 1
-Details...
-
-### Subtopic 2
-Details...
-
-## Implications for Our Project
-How this research affects our implementation decisions:
-- Implication 1
-- Implication 2
-
-## References
-- [Source 1](url)
-- [Source 2](url)
-- Research paper, blog post, etc.
-
-## Related Features
-- [FEAT-001](../features/FEAT-001-example.md) - Uses this research
-```
 
 ---
 
