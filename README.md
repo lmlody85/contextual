@@ -123,18 +123,24 @@ Your answers get documented in feature files for future reference.
 
 ### Option B: Claude Code Skill
 
-Best for existing projects. Scaffold the structure on-demand.
+Best for adding to existing projects with Claude Code.
 
 ```bash
-# Copy skill to your Claude Code skills directory
 cp -r .claude/skills/contextual ~/.claude/skills/
 ```
 
-Then in any project, just ask Claude Code:
-- "Set up Contextual docs"
-- "Validate documentation"
+Then ask: "Set up Contextual docs" or "Validate documentation"
 
-The skill provides the same framework without copying template files manually.
+### Option C: Implementation Prompt
+
+Best for existing projects with any AI tool. Includes before/after understanding test.
+
+1. Copy [prompts/implement-contextual.md](prompts/implement-contextual.md)
+2. Paste into AI session in your target repo
+3. AI runs understanding test, implements framework, runs test again
+4. Compare scores to measure effectiveness
+
+See [tested results](#tested-results) for real-world improvement metrics.
 
 ---
 
@@ -153,11 +159,35 @@ your-project/
 
 Full structure details in [AGENTS.md](AGENTS.md).
 
-### Prompts
+### Architecture Docs (Optional)
 
-| Prompt | Purpose |
-|--------|---------|
-| [implement-contextual.md](prompts/implement-contextual.md) | Implement framework on existing repo with before/after understanding test |
+| File | Purpose |
+|------|---------|
+| `contracts.md` | API patterns, data schemas, agent interfaces |
+| `testing.md` | Test commands, patterns, coverage targets |
+| `decisions/` | Architecture Decision Records (ADRs) |
+
+Create these when your project has established patterns worth documenting.
+
+---
+
+## Tested Results
+
+Real-world implementation on a multi-agent AI project (7 features, ~50 source files):
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| **Confidence** | 15/35 | 33/35 | +120% |
+| **Completeness** | 15/35 | 34/35 | +127% |
+
+> "Reading 5 doc files (~15 min) gave me 94% confidence vs. exploring 50+ source files (estimated 2-3 hours)"
+
+**Key improvements:**
+- Architecture: 2/5 → 5/5 (visual diagrams + rationale)
+- Dependencies: 1/5 → 4/5 (explicit, bidirectional)
+- Bug fix confidence: 2/5 → 4/5 ("Known Issues" history)
+
+Test methodology: [prompts/implement-contextual.md](prompts/implement-contextual.md)
 
 ---
 
