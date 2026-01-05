@@ -199,9 +199,11 @@ AI spends more time coding, less time reading:
 
 | Task | Contextual | Single README | Wiki |
 |------|------------|---------------|------|
-| Fix bug | ~1,000 tokens | 5000+ | 2000+ |
-| Add feature | ~1,700 tokens | 5000+ | 4000+ |
-| Understand arch | ~2,000 tokens | 5000+ | 3000+ |
+| Add feature | ~2,000 tokens | 8,000+ | 5,000+ |
+| Fix bug | ~1,900 tokens | 6,000+ | 4,000+ |
+| Understand architecture | ~1,900 tokens | 5,000+ | 3,000+ |
+
+*Contextual loads AGENTS.md (~1,700) + task-specific docs (~200-300)*
 
 ### Scalability
 
