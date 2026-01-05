@@ -165,7 +165,6 @@ Full structure details in [AGENTS.md](AGENTS.md).
 |------|---------|
 | `contracts.md` | API patterns, data schemas, agent interfaces |
 | `testing.md` | Test commands, patterns, coverage targets |
-| `decisions/` | Architecture Decision Records (ADRs) |
 
 Create these when your project has established patterns worth documenting.
 

@@ -55,7 +55,6 @@ The user describes intent. You handle the documentation.
 | `/docs/architecture/overview.md` | System design | Understanding architecture |
 | `/docs/architecture/contracts.md` | API patterns, data schemas | Building integrations |
 | `/docs/architecture/testing.md` | Test strategy, commands | Writing/running tests |
-| `/docs/architecture/decisions/` | ADRs | Understanding "why" |
 
 ---
 
@@ -127,8 +126,6 @@ Each feature has ONE self-contained document: `/docs/features/FEAT-xxx.md`
 
 **Optional sections** (add as needed):
 - Requirements, Data Flow, API/Interface, Testing Strategy, Future Improvements
-
-**See:** `/docs/features/_TEMPLATE.md` for complete template
 
 ---
 

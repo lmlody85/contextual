@@ -18,7 +18,7 @@
 
 ## Key Decisions
 
-See [decisions/](decisions/) for Architecture Decision Records (ADRs).
+*Document major architectural decisions and rationale here*
 
 ---
 
@@ -28,4 +28,3 @@ See [decisions/](decisions/) for Architecture Decision Records (ADRs).
 |-----|---------|
 | [contracts.md](contracts.md) | API patterns, data schemas, agent interfaces |
 | [testing.md](testing.md) | Test strategy, patterns, commands |
-| [decisions/](decisions/) | Architecture Decision Records |

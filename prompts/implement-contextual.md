@@ -61,16 +61,13 @@ Answer these questions based on your current understanding of the codebase. Be h
     ├── FEATURES.md                # Feature index
     ├── FEATURE-MAP.md             # Dependency graph
     ├── features/
-    │   ├── _TEMPLATE.md           # Feature doc template
     │   └── FEAT-001-xxx.md        # One per major feature
     ├── research/
     │   └── README.md              # Domain knowledge index
     └── architecture/
         ├── overview.md            # System design
         ├── contracts.md           # API patterns, data schemas (optional)
-        ├── testing.md             # Test strategy (optional)
-        └── decisions/             # ADRs (optional)
-            └── _TEMPLATE.md
+        └── testing.md             # Test strategy (optional)
 ```
 
 ## File Contents
@@ -198,7 +195,7 @@ FEAT-002 (Name)
 *Standalone features with no dependencies*
 ```
 
-### docs/features/_TEMPLATE.md
+### Feature Doc Format (FEAT-xxx.md)
 
 ```markdown
 # FEAT-###: Feature Name
@@ -277,7 +274,7 @@ Knowledge that applies to multiple features. Feature-specific decisions go in FE
 
 ## Key Decisions
 
-See [decisions/](decisions/) for Architecture Decision Records.
+*Document major architectural decisions and rationale here*
 
 ---
 
@@ -287,7 +284,6 @@ See [decisions/](decisions/) for Architecture Decision Records.
 |-----|---------|
 | [contracts.md](contracts.md) | API patterns, data schemas |
 | [testing.md](testing.md) | Test strategy, commands |
-| [decisions/](decisions/) | ADRs |
 ```
 
 ### docs/architecture/contracts.md (optional)
@@ -350,37 +346,14 @@ Shared interfaces and patterns used across features.
 **Check:** *command*
 ```
 
-### docs/architecture/decisions/_TEMPLATE.md (optional)
-
-```markdown
-# ADR-###: Decision Title
-
-**Status:** Proposed | Accepted | Deprecated
-**Date:** YYYY-MM-DD
-
-## Context
-*What triggered this decision?*
-
-## Decision
-*What was decided?*
-
-## Consequences
-**Positive:** *benefits*
-**Negative:** *trade-offs*
-
-## Alternatives Considered
-| Option | Pros | Cons | Why rejected |
-|--------|------|------|--------------|
-```
-
 ## Implementation Steps
 
 1. **Create directory structure:**
    ```bash
-   mkdir -p docs/features docs/research docs/architecture/decisions
+   mkdir -p docs/features docs/research docs/architecture
    ```
 
-2. **Create all template files** listed above
+2. **Create index files** (CURRENT.md, FEATURES.md, FEATURE-MAP.md, research/README.md)
 
 3. **Analyze the codebase** to identify:
    - Major features/modules
@@ -407,7 +380,6 @@ Shared interfaces and patterns used across features.
 8. **Optional: Fill in architecture details** (if patterns exist):
    - `contracts.md` — Document API patterns, data schemas, agent interfaces
    - `testing.md` — Document test commands, patterns, coverage targets
-   - `decisions/ADR-001-xxx.md` — Document key architectural decisions
 
 9. **Verify consistency:**
    - Every FEAT file is listed in FEATURES.md
