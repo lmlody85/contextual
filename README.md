@@ -1,8 +1,8 @@
 # Contextual
 
-> Capture product & engineering context for AI-assisted development
+> A documentation framework that teaches AI to document as it builds
 
-**Stop fighting documentation drift. Build interconnected documentation that tracks features, decisions, and rationale - designed for both humans and AI agents.**
+**Describe what you want to build. AI creates the architecture, features, and documentation—asking clarifying questions along the way. You stay in control while AI handles the paperwork.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
@@ -11,26 +11,26 @@
 
 ## The Problem
 
-Traditional documentation approaches fail when working with AI agents on complex projects:
+AI-assisted development without structure leads to chaos:
 
-❌ **Single README files** → AI loads 5000+ tokens to find one piece of information
-❌ **Wiki systems** → Circular dependencies, broken links, context pollution
-❌ **Scattered code comments** → AI must read entire codebase
-❌ **Manual maintenance** → Documentation drifts out of sync as code evolves
+❌ **No documentation** → AI forgets context between sessions, repeats mistakes
+❌ **AI guesses instead of asks** → Builds wrong thing, requires rework
+❌ **Manual docs** → You spend time writing instead of building
+❌ **Documentation drift** → Docs become stale, AI gets confused
 
-**Result:** AI agents waste context, forget to update indexes, and can't navigate your codebase efficiently.
+**Result:** You either skip documentation (and pay later) or waste time maintaining it yourself.
 
 ---
 
 ## The Solution
 
-Contextual provides **interconnected documentation** that captures product and engineering context in a format AI agents understand:
+Contextual teaches AI to **create and maintain documentation automatically**:
 
-✅ **Product management** → Track features, dependencies, roadmap, and status
-✅ **Engineering docs** → Capture decisions, architecture, and implementation patterns
-✅ **Research & rationale** → Link domain knowledge and principles to features
-✅ **AI-optimized** → Token-efficient navigation (~1,000-2,000 tokens for most tasks)
-✅ **Automated validation** → Catch documentation drift before it accumulates
+✅ **AI asks first** → Clarifies requirements before building
+✅ **AI documents as it builds** → Architecture, features, decisions captured automatically
+✅ **AI maintains consistency** → Updates indexes, validates links, tracks dependencies
+✅ **You stay in control** → Review and approve, but don't write boilerplate
+✅ **Token-efficient** → AI navigates your codebase in ~1,000-2,000 tokens
 
 ---
 
@@ -98,49 +98,44 @@ rm -rf .git
 git init
 ```
 
-### 2. Customize for Your Project
+### 2. Describe Your Project to AI
 
-Update these files with your project info:
-- `README.md` (this file)
-- `docs/architecture/overview.md`
-- `docs/guides/setup.md`
+Just tell your AI assistant what you want to build:
 
-### 3. Start Using with AI
-
-**For Claude Code:**
 ```
-Say to Claude: "Add authentication feature"
-Claude will:
-- Read CLAUDE.md for instructions
-- Create FEAT-001-auth.md
-- Update indexes automatically
-- Prompt you to validate docs
+"I want to build a task management app with user authentication"
 ```
 
-**For other AI tools:**
-- AI reads `AGENTS.md` for universal instructions
-- Follow the same documentation structure
-- Use manual validation checklist
+**The AI will:**
+1. Ask clarifying questions (OAuth vs password? What features?)
+2. Create `docs/architecture/overview.md` based on your answers
+3. Create your first feature doc (`FEAT-001-auth.md`)
+4. Implement the feature
+5. Update all indexes automatically
+6. Prompt you to validate docs
 
-### 4. Create Your First Feature
+### 3. Keep Building
 
-```bash
-# Copy the template
-cp docs/features/_TEMPLATE.md docs/features/FEAT-001-your-feature.md
+For each new feature, just describe what you need:
 
-# Fill in the sections:
-# - What, Why, How
-# - Implementation notes
-# - Known issues
-# - Dependencies
-
-# Update indexes:
-# - Add to docs/FEATURES.md
-# - Add to docs/FEATURE-MAP.md (if has dependencies)
-
-# Validate (if using Claude Code):
-Say: "validate docs"
 ```
+"Add the ability to share tasks with other users"
+```
+
+**The AI handles:**
+- Creating feature documentation
+- Updating architecture as the system grows
+- Maintaining indexes and dependencies
+- Validating consistency
+
+### 4. You Stay in Control
+
+The AI asks before making big decisions:
+- Which authentication approach? (OAuth, passwords, magic links)
+- How should sharing work? (invite links, email, direct add)
+- What permissions model? (view-only, edit, admin)
+
+Your answers get documented in feature files for future reference.
 
 ---
 
