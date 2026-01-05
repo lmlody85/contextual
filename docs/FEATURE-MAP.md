@@ -14,6 +14,25 @@ This document visualizes relationships between features to help understand syste
 
 ---
 
+## When to Update This Map
+
+**Add a feature when:**
+- It has ANY dependencies (depends on OR is depended upon)
+- It's part of a feature flow (e.g., login -> session -> profile)
+- Changing it would affect other features
+
+**Don't add when:**
+- Feature is completely standalone with no dependencies
+- No other features interact with it
+
+**Format rules:**
+- `A -> B` means "A depends on B" (A uses B)
+- `A <- B` means "B depends on A" (B uses A)
+- `A <-> B` means bidirectional dependency
+- Group by functional cluster first, then show cross-cluster dependencies
+
+---
+
 ## Feature Relationships
 
 *As features are added, document their relationships here using the format below*

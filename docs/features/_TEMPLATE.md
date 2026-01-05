@@ -21,16 +21,16 @@ Describe the implementation approach and key decisions made.
 
 ---
 
-## Research References (If Applicable)
+## Research References
 
 Link to relevant research documents that informed this feature:
 - [Research Doc Name](../research/topic.md) - Brief explanation of relevance
 
-*Remove this section if no related research*
+*Write "None - feature does not require domain research" if not applicable*
 
 ---
 
-## Feature Dependencies (Optional but Recommended)
+## Feature Dependencies
 
 ### This feature depends on:
 - [FEAT-XXX](FEAT-XXX-name.md) - What it provides and how it's used
@@ -38,7 +38,7 @@ Link to relevant research documents that informed this feature:
 ### Features that depend on this:
 - [FEAT-YYY](FEAT-YYY-name.md) - What they consume from this feature
 
-*Remove this section if no dependencies*
+*Write "None - standalone feature" if no dependencies exist*
 
 ---
 

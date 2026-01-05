@@ -2,13 +2,11 @@
 name: docs-validator
 description: Validates documentation consistency after changes
 tools: [Read, Glob, Grep]
-triggerPatterns:
-  - "validate docs"
-  - "check documentation"
-  - "lint docs"
 ---
 
 # Documentation Validator Agent
+
+> **Trigger phrases:** "validate docs", "check documentation", "lint docs"
 
 You are a specialized documentation validator for this project. Your role is to check documentation consistency and report issues with specific fix instructions.
 

@@ -22,8 +22,11 @@ grep -r "payment" docs/features/
 
 ## Feature Categories
 
+### Reference
+- **[FEAT-000](features/FEAT-000-example.md)** - Example feature (delete when creating first real feature)
+
 ### Core Features
-*No features yet*
+*No features yet - delete FEAT-000 and add your first feature here*
 
 ### API Features
 *No features yet*

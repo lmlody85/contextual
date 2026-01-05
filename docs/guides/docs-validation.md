@@ -145,6 +145,35 @@ echo "✓ Documentation validation passed"
 
 ---
 
+## After Validation Reports Issues
+
+### Recovery Workflow
+
+1. **Critical issues (must fix immediately):**
+   - Missing index entries -> Add to FEATURES.md
+   - Broken links -> Fix path or remove link
+   - Missing bidirectional dependencies -> Update both feature docs
+
+2. **Warnings (fix within same session):**
+   - Feature not in FEATURE-MAP -> Add if it has dependencies
+   - Orphaned research docs -> Link from features or document why standalone
+
+3. **After fixing:** Run validation again to confirm all issues resolved
+   - Claude Code: Say "validate docs"
+   - Other tools: Run checklist manually
+
+### If You Can't Fix an Issue
+
+Document it temporarily:
+```markdown
+## Known Documentation Issues
+- [ ] FEAT-023 missing from FEATURES.md (blocked: waiting for feature rename)
+```
+
+Then fix it as soon as the blocker is resolved.
+
+---
+
 ## Common Issues and Fixes
 
 ### Issue: Feature exists but not in FEATURES.md

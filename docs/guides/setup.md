@@ -140,7 +140,7 @@ The application will be available at: `http://localhost:XXXX`
 
 ### Adding a New Feature
 
-1. Read the [documentation guide](../instructions.md)
+1. Read the [AGENTS.md](../../AGENTS.md) documentation guide
 2. Create a feature doc: `docs/features/FEAT-###-name.md`
 3. Update `docs/CURRENT.md` with your task
 4. Implement the feature
@@ -301,7 +301,7 @@ command8              # Description
 
 ## Additional Resources
 
-- [Complete Documentation Guide](../instructions.md)
+- [Complete Documentation Guide](../../AGENTS.md)
 - [Architecture Overview](../architecture/overview.md)
 - [Feature Index](../FEATURES.md)
 - External documentation links

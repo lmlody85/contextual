@@ -171,7 +171,7 @@ your-project/
 │   ├── CURRENT.md               # Active work tracker
 │   ├── FEATURES.md              # Feature index
 │   ├── FEATURE-MAP.md           # Feature relationships
-│   ├── instructions.md          # Complete guide for AI agents
+│   ├── guides/                  # Specialized guides and strategies
 │   ├── features/
 │   │   ├── _TEMPLATE.md         # Feature documentation template
 │   │   └── FEAT-*.md            # Individual feature docs

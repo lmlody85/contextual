@@ -1,12 +1,8 @@
----
-name: post-feature-validation-reminder
-event: PostToolUse
-tools: [Write, Edit]
----
-
 # Post-Feature Validation Reminder
 
-This hook detects when major feature work has been completed and reminds the AI agent to offer documentation validation to the user.
+> **Note:** This document describes the intended hook behavior. The AI agent should follow these guidelines when completing feature work.
+
+This describes when to remind users about documentation validation after completing feature work.
 
 ## Trigger Conditions
 

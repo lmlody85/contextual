@@ -1,24 +1,13 @@
 # Claude Code Instructions
 
-> **⚠️ READ THIS FIRST:** Before reading this file, read [AGENTS.md](AGENTS.md) for the complete documentation system. This file contains **Claude Code-specific features only** (hooks, sub-agents, automation).
+> **Supplement to [AGENTS.md](AGENTS.md)** - Claude Code-specific features only
 
----
-
-## Reading Order
-
-1. **First:** Read [AGENTS.md](AGENTS.md) - Core documentation system (required)
-2. **Then:** Read this file - Claude Code optimizations (recommended)
-
-**AGENTS.md provides:**
-- Documentation structure & navigation
-- Core principles (Ground Truth, Measure Don't Guess)
-- Feature format & research system
-- Complete workflows & best practices
-
-**This file adds:**
+This file adds Claude Code automation to the core system in AGENTS.md:
 - Automated validation (hooks + sub-agents)
 - TodoWrite integration
-- Claude Code-optimized shortcuts
+- Smart prompts after feature work
+
+**Note:** AGENTS.md contains all core instructions. This file is additive.
 
 ---
 
@@ -51,7 +40,7 @@ Example:
 
 ### Smart Hooks
 
-**post-feature-validation-reminder** (`.claude/hooks/post-feature-reminder.md`):
+**post-feature-reminder** (`.claude/hooks/post-feature-reminder.md`):
 - Detects new FEAT files, completed features, or major doc updates
 - Prompts AI agent to offer validation
 - Non-intrusive (ask, don't auto-run)
@@ -85,8 +74,7 @@ Example:
 
 | Resource | Purpose |
 |----------|---------|
-| [AGENTS.md](AGENTS.md) | Universal documentation system (start here) |
-| [docs/instructions.md](docs/instructions.md) | Complete AI agent guide |
+| [AGENTS.md](AGENTS.md) | Complete documentation system (start here) |
 | [.claude/README.md](.claude/README.md) | Claude Code configuration |
 | [docs/guides/](docs/guides/) | Specialized techniques & strategies |
 

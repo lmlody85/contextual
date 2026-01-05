@@ -1,11 +1,13 @@
 # AI Agent Instructions
 
-> **Universal documentation guide for all AI coding assistants**
+> **The single entry point for all AI coding assistants**
 
-This file contains the **complete documentation system** for all AI tools. After reading this, check for tool-specific optimizations:
-- **Claude Code:** See [CLAUDE.md](CLAUDE.md) for hooks, sub-agents, and automation
-- **Cursor:** See [.cursorrules](.cursorrules) (if exists)
-- **Copilot:** See [.github/copilot-instructions.md](.github/copilot-instructions.md) (if exists)
+This file is the **primary and complete** documentation system. Read this first, then optionally check tool-specific supplements:
+- **Claude Code:** [CLAUDE.md](CLAUDE.md) adds hooks, sub-agents, and automation
+- **Cursor:** [.cursorrules](.cursorrules) adds Cursor-specific rules (if exists)
+- **Copilot:** [.github/copilot-instructions.md](.github/copilot-instructions.md) adds Copilot guidance (if exists)
+
+**Important:** Tool-specific files are additive supplements, not prerequisites. This file alone is sufficient.
 
 ---
 
@@ -36,7 +38,29 @@ Complex tasks → Research → Ask questions → Confirm → Document → Execut
 
 **Document decisions in feature docs** ("Implementation Notes" section)
 
-### 2. Measure, Don't Guess
+### 2. Chain Complex Tasks
+
+**Break complex work into focused steps:**
+```
+Clarify → Research → Document → Implement → Test → Validate → Commit
+```
+
+**Example - Adding a feature:**
+1. **Clarify vague requests first** - Use AskUserQuestion if requirements unclear
+2. Research existing patterns and dependencies
+3. Create FEAT-xxx.md with approach
+4. Implement following the doc
+5. Write tests
+6. Validate documentation (sub-agent: "validate docs")
+7. Commit changes
+
+**Use AskUserQuestion when:**
+- Request is vague or ambiguous
+- Multiple valid approaches exist
+- Architectural decisions needed
+- About to make an assumption that could be wrong
+
+### 3. Measure, Don't Guess
 
 **Never guess numerical values - benchmark instead.**
 
@@ -54,62 +78,20 @@ Complex tasks → Research → Ask questions → Confirm → Document → Execut
 
 ---
 
-## Documentation System Overview
+## Documentation System
 
-**Core principle:** Self-contained, navigable docs with minimal context loading.
-
-### Entry Points
-
-**Start here for any task:**
-1. Read `/docs/CURRENT.md` - Active work (< 1KB)
-2. Check `/docs/research/` - Domain knowledge & principles
-3. Read relevant `/docs/features/FEAT-xxx.md` - Feature details
-4. Update docs as you implement
+**Core principle:** Self-contained docs with minimal context loading.
 
 ### Key Files
 
 | File | Purpose | When to Read |
 |------|---------|--------------|
-| `/docs/CURRENT.md` | Active work, blockers, context | Always read first |
+| `/docs/CURRENT.md` | Active work, blockers | If continuing work |
 | `/docs/FEATURES.md` | Feature index | Finding features |
 | `/docs/FEATURE-MAP.md` | Feature relationships | Understanding dependencies |
 | `/docs/research/README.md` | Domain knowledge index | Before implementing |
 | `/docs/features/FEAT-xxx.md` | Individual feature docs | Working on feature |
 | `/docs/architecture/overview.md` | System design | Understanding architecture |
-| `/docs/instructions.md` | Complete AI guide | Full reference |
-
----
-
-## Quick Start Workflows
-
-### Fix a Bug
-```
-1. Find feature: grep -r "feature name" docs/features/
-2. Read FEAT-xxx.md (focus on "Known Issues")
-3. Implement fix
-4. Update "Known Issues & Resolutions" section
-5. Update research docs if bug revealed insights
-```
-
-### Add a New Feature
-```
-1. Check similar features: Browse /docs/FEATURES.md
-2. Check domain knowledge: /docs/research/README.md "Quick Find"
-3. Review dependencies: /docs/FEATURE-MAP.md
-4. Create feature doc: Copy /docs/features/_TEMPLATE.md
-5. Implement following template structure
-6. Update indexes: FEATURES.md, FEATURE-MAP.md (if dependencies)
-7. Link research docs in "Research References"
-8. Validate documentation
-```
-
-### Understand System Architecture
-```
-1. Read /docs/architecture/overview.md
-2. Check /docs/FEATURE-MAP.md for relationships
-3. Grep for topics: grep -r "[topic]" docs/research/
-4. Read relevant research docs
-```
 
 ---
 
@@ -167,8 +149,8 @@ Each feature has ONE self-contained document: `/docs/features/FEAT-xxx.md`
 1. **What** - Feature description (2-3 sentences)
 2. **Why** - Problem solved or value provided
 3. **How** - Technical approach and key components
-4. **Research References** - Links to research docs (if applicable)
-5. **Feature Dependencies** - What it depends on, what depends on it
+4. **Research References** - Links to research docs (or "None")
+5. **Feature Dependencies** - What it depends on, what depends on it (or "None")
 6. **Files Changed** - List of modified files
 7. **Known Issues & Resolutions** - Bugs, fixes, workarounds
 8. **TODO** - Remaining work or "Feature complete"
@@ -199,13 +181,21 @@ Before implementing domain features, making design decisions, debugging domain i
 
 **From Features:** Follow "Research References" links in FEAT-xxx.md files
 
-### Linking Research
+### Where to Put Knowledge
 
-Link from feature docs to research:
-```markdown
-Uses [algorithm] for [purpose].
-**See:** [Research Doc](../research/doc-name.md) - Principle 1 (§X.X), Principle 2 (§Y.Y)
-```
+**In Feature Docs (Implementation Notes):**
+- Decisions specific to THIS feature only
+- Why Option A was chosen over B for this case
+- Lessons learned during this implementation
+- Challenges and solutions specific to this feature
+
+**In Research Docs:**
+- Knowledge that applies to MULTIPLE features
+- General principles, patterns, or best practices
+- Domain expertise worth preserving and reusing
+- Information you'd reference from other features
+
+**Rule of thumb:** If you'd copy-paste the same info into another feature doc, it belongs in research.
 
 ---
 
@@ -223,64 +213,11 @@ Catches missing indexes, broken links, and invalid dependencies.
 
 ---
 
-## Context-Efficient Navigation
+## Tool-Specific Features
 
-**Token usage targets:**
-
-| Task | Target | Typical Files |
-|------|--------|---------------|
-| Fix bug | < 1000 | CURRENT.md + FEAT-xxx.md |
-| Add feature | < 2000 | CURRENT.md + FEATURES.md + research + FEAT-xxx.md |
-| Understand arch | < 2500 | architecture/overview.md + FEATURE-MAP.md + FEATs |
-
-**Navigation:**
-- Feature: `grep -r "keyword" docs/features/` or browse FEATURES.md or FEATURE-MAP.md
-- Research: Check research/README.md "Quick Find" or `grep -r "keyword" docs/research/`
-
----
-
-## Best Practices
-
-### Token Efficiency
-- ✓ Only read files needed for current task
-- ✓ Use grep for searching (0 tokens)
-- ✓ Use indexes to find what you need
-- ✓ Feature docs are self-contained
-
-### Clarification Before Implementation
-- ✓ Ask when requirements ambiguous
-- ✓ Present options with trade-offs
-- ✓ Identify decision points first
-- ✓ Document choices in "Implementation Notes"
-- ✓ Ask BEFORE implementing (not after)
-
-**See:** [docs/guides/clarification-strategy.md](docs/guides/clarification-strategy.md)
-
-### Documentation Maintenance
-- ✓ Update docs as you code (not after)
-- ✓ Keep feature docs self-contained
-- ✓ Link to research (don't duplicate)
-- ✓ Document bugs in "Known Issues" immediately
-- ✓ Validate after major work
-
-### Code Implementation
-- ✓ Read feature docs before modifying code
-- ✓ Follow patterns in "Implementation Notes"
-- ✓ Apply principles from research docs
-- ✓ Update "Files Changed" section
-- ✓ Document decisions made
-- ✓ Check "Known Issues" section for warnings
-
----
-
-## For Complete Details
-
-**Full guide:** [docs/instructions.md](docs/instructions.md)
-
-**Tool-specific features:**
-- Claude Code: [CLAUDE.md](CLAUDE.md) - Hooks, sub-agents, validation
-- Cursor: [.cursorrules](.cursorrules)
-- Copilot: [.github/copilot-instructions.md](.github/copilot-instructions.md)
+- **Claude Code:** [CLAUDE.md](CLAUDE.md) - Hooks, sub-agents, validation
+- **Cursor:** [.cursorrules](.cursorrules) (create from multi-agent guide)
+- **Copilot:** [.github/copilot-instructions.md](.github/copilot-instructions.md) (create from multi-agent guide)
 
 **Advanced techniques:**
 - [Prompt Chaining](docs/guides/prompt-chaining.md) - Break tasks into focused steps
@@ -294,7 +231,7 @@ Catches missing indexes, broken links, and invalid dependencies.
 | I need to... | Action |
 |-------------|--------|
 | Fix a bug | `grep -r "feature" docs/features/` → Read FEAT-xxx.md → Update "Known Issues" |
-| Add a feature | Copy `_TEMPLATE.md` → Implement → Update indexes → Link research → Validate |
+| Add a feature | Clarify if vague → Copy `_TEMPLATE.md` → Implement → Update indexes → Link research → Validate (sub-agent) → Commit |
 | Understand system | Read `architecture/overview.md` → Check `FEATURE-MAP.md` → Read FEATs |
 | Find research | Check `research/README.md` Quick Find → `grep -r "topic" docs/research/` |
 | See current work | Read `CURRENT.md` |
