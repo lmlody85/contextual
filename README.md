@@ -1,11 +1,13 @@
 # Contextual
 
-> An AI-native documentation framework with structured context management
-
-**Describe what you want to build. AI creates the architecture, features, and documentation—asking clarifying questions along the way. You stay in control while AI handles the paperwork.**
+> **Documentation that writes itself.** AI creates and maintains docs as you build.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
+**+120% confidence. +127% completeness.** Tested on a real multi-agent AI project.
+
+> "Reading 5 doc files (~15 min) gave me 94% confidence vs. exploring 50+ source files (estimated 2-3 hours)"
 
 ---
 
@@ -24,13 +26,14 @@ AI-assisted development without structure leads to chaos:
 
 ## The Solution
 
-Contextual teaches AI to **create and maintain documentation automatically**:
+Contextual is a documentation framework that **AI creates and maintains automatically**:
 
-- **AI asks first** — Clarifies requirements before building
-- **AI documents as it builds** — Architecture, features, decisions captured automatically
-- **AI maintains consistency** — Updates indexes, validates links, tracks dependencies
-- **You stay in control** — Review and approve, but don't write boilerplate
-- **Minimal context overhead** — AI navigates your codebase quickly, spends time coding
+| You do | AI does |
+|--------|---------|
+| Describe what you want | Ask clarifying questions |
+| Review and approve | Create architecture & feature docs |
+| Make decisions | Update indexes, track dependencies |
+| Build features | Keep everything in sync |
 
 ---
 
@@ -179,12 +182,10 @@ Real-world implementation on a multi-agent AI project (7 features, ~50 source fi
 | **Confidence** | 15/35 | 33/35 | +120% |
 | **Completeness** | 15/35 | 34/35 | +127% |
 
-> "Reading 5 doc files (~15 min) gave me 94% confidence vs. exploring 50+ source files (estimated 2-3 hours)"
-
-**Key improvements:**
-- Architecture: 2/5 → 5/5 (visual diagrams + rationale)
-- Dependencies: 1/5 → 4/5 (explicit, bidirectional)
-- Bug fix confidence: 2/5 → 4/5 ("Known Issues" history)
+**Where it helped most:**
+- Architecture understanding: 2/5 → 5/5
+- Dependency mapping: 1/5 → 4/5
+- Bug fix confidence: 2/5 → 4/5
 
 Test methodology: [prompts/implement-contextual.md](prompts/implement-contextual.md)
 
@@ -230,18 +231,19 @@ Works with any AI coding assistant:
 
 ---
 
-## Use Cases
+## Who It's For
 
-**Best for:**
-- Complex software projects with 10+ features
-- AI-assisted development with Claude, Cursor, Copilot
-- Team projects where documentation must stay synchronized
-- Long-term projects where documentation drift is a problem
+**Ideal:** Complex projects (10+ features), AI-assisted teams, long-term codebases.
 
-**Not designed for:**
-- Single-file scripts or simple utilities
-- Throwaway prototypes
-- Projects without AI assistance
+**Skip if:** Simple scripts, throwaway prototypes, no AI tools.
+
+---
+
+## Get Started
+
+1. [Clone the template](#option-a-repository-template) for new projects
+2. [Install the skill](#option-b-claude-code-skill) for Claude Code
+3. [Use the prompt](#option-c-implementation-prompt) for any AI tool
 
 ---
 
@@ -251,4 +253,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-[Report an issue](https://github.com/lmlody85/contextual/issues) · [View on GitHub](https://github.com/lmlody85/contextual)
+[GitHub](https://github.com/lmlody85/contextual) · [Issues](https://github.com/lmlody85/contextual/issues) · [Discussions](https://github.com/lmlody85/contextual/discussions)
