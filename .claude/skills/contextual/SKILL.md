@@ -9,9 +9,9 @@ AI-native documentation framework with structured context management.
 
 ## When to Use
 
-- **`/contextual init`** — Scaffold documentation structure in a new project
-- **`/contextual validate`** — Check existing docs for issues
-- **Answering questions** — About Contextual setup, structure, or best practices
+- **"Set up Contextual"** or **"scaffold docs"** — Create documentation structure
+- **"Validate docs"** or **"check documentation"** — Find and fix issues
+- **Questions about Contextual** — Setup, structure, best practices
 
 ## Quick Reference
 
@@ -33,7 +33,7 @@ AI-native documentation framework with structured context management.
 
 ### Initialize New Project
 
-When user says `/contextual init` or asks to set up Contextual:
+When user asks to set up Contextual, scaffold docs, or create documentation structure:
 
 1. Read [SETUP.md](SETUP.md) for the scaffolding procedure
 2. Create the directory structure
@@ -42,7 +42,7 @@ When user says `/contextual init` or asks to set up Contextual:
 
 ### Validate Documentation
 
-When user says `/contextual validate` or asks to check docs:
+When user asks to validate docs, check documentation, or find doc issues:
 
 1. Read [VALIDATE.md](VALIDATE.md) for the validation checklist
 2. Run each check

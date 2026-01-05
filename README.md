@@ -84,17 +84,15 @@ FEAT-015 (User Profile)
 
 Best for new projects. Get the full structure with all files.
 
+**1. Clone and initialize:**
+
 ```bash
-# Clone this repository
 git clone https://github.com/lmlody85/contextual.git my-project
 cd my-project
-
-# Remove git history (start fresh)
-rm -rf .git
-git init
+rm -rf .git && git init
 ```
 
-### 2. Describe Your Project to AI
+**2. Describe your project to AI:**
 
 Just tell your AI assistant what you want to build:
 
@@ -110,21 +108,11 @@ Just tell your AI assistant what you want to build:
 5. Update all indexes automatically
 6. Prompt you to validate docs
 
-### 3. Keep Building
+**3. Keep building:**
 
-For each new feature, just describe what you need:
+For each new feature, describe what you need. The AI handles documentation, indexes, and dependencies automatically.
 
-```
-"Add the ability to share tasks with other users"
-```
-
-**The AI handles:**
-- Creating feature documentation
-- Updating architecture as the system grows
-- Maintaining indexes and dependencies
-- Validating consistency
-
-### 4. You Stay in Control
+**4. You stay in control:**
 
 The AI asks before making big decisions:
 - Which authentication approach? (OAuth, passwords, magic links)
@@ -142,12 +130,9 @@ Best for existing projects. Scaffold the structure on-demand.
 cp -r .claude/skills/contextual ~/.claude/skills/
 ```
 
-Then in any project:
-
-```
-/contextual init      # Scaffold documentation structure
-/contextual validate  # Check docs for issues
-```
+Then in any project, just ask Claude Code:
+- "Set up Contextual docs"
+- "Validate documentation"
 
 The skill provides the same framework without copying template files manually.
 
@@ -200,7 +185,7 @@ Works with any AI coding assistant:
 
 | Tool | Integration | Automation Level |
 |------|-------------|------------------|
-| **Claude Code** | Native via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/) | Full (hooks, skill commands, auto-validation) |
+| **Claude Code** | Native via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/) | Full (hooks, skills, auto-validation) |
 | **Cursor** | Via `.cursorrules` | Manual validation |
 | **Copilot** | Via `.github/copilot-instructions.md` | Manual validation |
 | **Others** | Via [AGENTS.md](AGENTS.md) | Manual validation |
@@ -215,8 +200,8 @@ Works with any AI coding assistant:
 - Team projects where documentation must stay synchronized
 - Long-term projects where documentation drift is a problem
 
-**Overkill for:**
-- Single-file scripts or simple projects
+**Not designed for:**
+- Single-file scripts or simple utilities
 - Throwaway prototypes
 - Projects without AI assistance
 
@@ -228,4 +213,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Questions?** [Open an issue](https://github.com/lmlody85/contextual/issues) · **Find this useful?** [Star the repo](https://github.com/lmlody85/contextual)
+[Report an issue](https://github.com/lmlody85/contextual/issues) · [View on GitHub](https://github.com/lmlody85/contextual)
