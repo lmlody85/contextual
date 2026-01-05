@@ -1,13 +1,21 @@
 # AI Agent Instructions
 
-> **The single entry point for all AI coding assistants**
+> **You create and maintain documentation as you build**
 
-This file is the **primary and complete** documentation system. Read this first, then optionally check tool-specific supplements:
-- **Claude Code:** [CLAUDE.md](CLAUDE.md) adds hooks, sub-agents, and automation
-- **Cursor:** [.cursorrules](.cursorrules) adds Cursor-specific rules (if exists)
-- **Copilot:** [.github/copilot-instructions.md](.github/copilot-instructions.md) adds Copilot guidance (if exists)
+When the user describes what they want, you:
+1. **Ask clarifying questions** before implementing
+2. **Create documentation** (architecture, features, research) as you work
+3. **Keep everything in sync** (indexes, dependencies, links)
+4. **Validate consistency** after major work
 
-**Important:** Tool-specific files are additive supplements, not prerequisites. This file alone is sufficient.
+The user describes intent. You handle the documentation.
+
+---
+
+**Tool-specific supplements** (optional):
+- **Claude Code:** [CLAUDE.md](CLAUDE.md) — hooks, sub-agents, automation
+- **Cursor:** [.cursorrules](.cursorrules) — Cursor-specific rules
+- **Copilot:** [.github/copilot-instructions.md](.github/copilot-instructions.md) — Copilot guidance
 
 ---
 
@@ -78,6 +86,31 @@ Clarify → Research → Document → Implement → Test → Validate → Commit
 
 ---
 
+## Starting a New Project
+
+When the user describes a new project or first feature:
+
+1. **Ask clarifying questions** — Understand scope, tech stack, key requirements
+2. **Create architecture doc** — Write `docs/architecture/overview.md` with:
+   - System overview based on user's answers
+   - Core components and their responsibilities
+   - Technology stack decisions
+3. **Create first feature doc** — Write `docs/features/FEAT-001-xxx.md`
+4. **Update indexes** — Add to `FEATURES.md`, `FEATURE-MAP.md` if needed
+5. **Implement** — Build the feature following your documentation
+
+**Example flow:**
+```
+User: "I want to build a task management app"
+You: Ask about auth method, storage, key features
+You: Create architecture/overview.md based on answers
+You: Create FEAT-001-auth.md for first feature
+You: Implement authentication
+You: Validate docs, commit
+```
+
+---
+
 ## Documentation System
 
 **Core principle:** Self-contained docs with minimal context loading.
@@ -99,8 +132,13 @@ Clarify → Research → Document → Implement → Test → Validate → Commit
 
 ### Required Actions
 
+**When starting a project or adding major components:**
+- ✓ Create/update `/docs/architecture/overview.md`
+- ✓ Document system design decisions
+- ✓ List core components and responsibilities
+
 **When creating features:**
-- ✓ Create `/docs/features/FEAT-xxx.md` from template
+- ✓ Create `/docs/features/FEAT-xxx.md` (use template as guide)
 - ✓ Add to `/docs/FEATURES.md` index
 - ✓ Add to `/docs/FEATURE-MAP.md` if has dependencies
 - ✓ Link to relevant research docs
@@ -230,13 +268,12 @@ Catches missing indexes, broken links, and invalid dependencies.
 
 | I need to... | Action |
 |-------------|--------|
-| Fix a bug | `grep -r "feature" docs/features/` → Read FEAT-xxx.md → Update "Known Issues" |
-| Add a feature | Clarify if vague → Copy `_TEMPLATE.md` → Implement → Update indexes → Link research → Validate (sub-agent) → Commit |
-| Understand system | Read `architecture/overview.md` → Check `FEATURE-MAP.md` → Read FEATs |
-| Find research | Check `research/README.md` Quick Find → `grep -r "topic" docs/research/` |
+| Start new project | Ask questions → Create `architecture/overview.md` → Create first `FEAT-xxx.md` → Implement |
+| Add a feature | Clarify if vague → Create `FEAT-xxx.md` → Implement → Update indexes → Validate |
+| Fix a bug | Find FEAT-xxx.md → Fix → Update "Known Issues" section |
+| Understand system | Read `architecture/overview.md` → Check `FEATURE-MAP.md` |
 | See current work | Read `CURRENT.md` |
-| Check dependencies | Read `FEATURE-MAP.md` → Check feature "Dependencies" sections |
 
 ---
 
-**Remember:** This system prioritizes **context efficiency** and **self-contained docs** for AI agents at scale.
+**Remember:** You create and maintain documentation. The user describes what they want—you handle the paperwork.
