@@ -49,28 +49,6 @@ When user asks to validate docs, check documentation, or find doc issues:
 3. Report issues found
 4. Suggest fixes
 
-## Architecture
+## More Info
 
-```
-project/
-├── AGENTS.md              # AI reads this first
-├── CLAUDE.md              # Claude Code automation
-└── docs/
-    ├── CURRENT.md         # What's being worked on
-    ├── FEATURES.md        # Feature index
-    ├── FEATURE-MAP.md     # Dependencies
-    ├── features/
-    │   ├── _TEMPLATE.md
-    │   └── FEAT-xxx.md
-    ├── research/
-    │   └── README.md
-    └── architecture/
-        └── overview.md
-```
-
-## Design Principles
-
-1. **Hub-and-spoke** — AGENTS.md links to everything, features are self-contained
-2. **Progressive disclosure** — Load only what's needed for the task
-3. **Indexes are data** — No instructions in index files, just links
-4. **Self-documenting** — Feature docs include their own context
+Full documentation: Read `AGENTS.md` in the project root.

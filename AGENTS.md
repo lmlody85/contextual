@@ -19,95 +19,23 @@ The user describes intent. You handle the documentation.
 
 ---
 
-## Core Principles for AI Agents
+## Core Principles
 
-**Before starting any work, internalize these principles:**
-
-### 1. Ground Truth Over Assumptions
-
-**For non-trivial tasks, reach ground truth understanding before coding.**
-
-**Process:**
-```
-Simple tasks → Execute immediately
-Complex tasks → Research → Ask questions → Confirm → Document → Execute
-```
-
-**Complex tasks include:**
-- Refactors affecting multiple files
-- New features with ambiguous requirements
-- Architectural decisions
-- Integration with existing systems
-
-**Use AskUserQuestion to clarify:**
-- Multiple valid approaches exist
-- Architectural impact unclear
-- Requirements can be interpreted 2+ ways
-
-**Document decisions in feature docs** ("Implementation Notes" section)
-
-### 2. Chain Complex Tasks
-
-**Break complex work into focused steps:**
-```
-Clarify → Research → Document → Implement → Test → Validate → Commit
-```
-
-**Example - Adding a feature:**
-1. **Clarify vague requests first** - Use AskUserQuestion if requirements unclear
-2. Research existing patterns and dependencies
-3. Create FEAT-xxx.md with approach
-4. Implement following the doc
-5. Write tests
-6. Validate documentation (sub-agent: "validate docs")
-7. Commit changes
-
-**Use AskUserQuestion when:**
-- Request is vague or ambiguous
-- Multiple valid approaches exist
-- Architectural decisions needed
-- About to make an assumption that could be wrong
-
-### 3. Measure, Don't Guess
-
-**Never guess numerical values - benchmark instead.**
-
-**Examples:**
-- Not: "This should take ~100ms" → Better: "Let me benchmark to get actual numbers"
-- Not: "Will handle ~1000 req/s" → Better: "I'll measure under realistic load"
-
-**Document measurements:**
-```markdown
-### Performance Benchmarks
-- Response time: 45ms (target: < 100ms)
-- Load test: 2,400 req/s sustained
-- Test setup: [environment, tools]
-```
+| Principle | Action |
+|-----------|--------|
+| **Ask before assuming** | Use AskUserQuestion for ambiguous requirements, multiple approaches, or architectural decisions |
+| **Document as you go** | Create FEAT-xxx.md before implementing; update "Implementation Notes" during work |
+| **Chain complex tasks** | Clarify → Research → Document → Implement → Test → Validate → Commit |
 
 ---
 
 ## Starting a New Project
 
-When the user describes a new project or first feature:
-
-1. **Ask clarifying questions** — Understand scope, tech stack, key requirements
-2. **Create architecture doc** — Write `docs/architecture/overview.md` with:
-   - System overview based on user's answers
-   - Core components and their responsibilities
-   - Technology stack decisions
-3. **Create first feature doc** — Write `docs/features/FEAT-001-xxx.md`
-4. **Update indexes** — Add to `FEATURES.md`, `FEATURE-MAP.md` if needed
-5. **Implement** — Build the feature following your documentation
-
-**Example flow:**
-```
-User: "I want to build a task management app"
-You: Ask about auth method, storage, key features
-You: Create architecture/overview.md based on answers
-You: Create FEAT-001-auth.md for first feature
-You: Implement authentication
-You: Validate docs, commit
-```
+1. **Ask clarifying questions** — Scope, tech stack, requirements
+2. **Create architecture doc** — `docs/architecture/overview.md`
+3. **Create first feature doc** — `docs/features/FEAT-001-xxx.md`
+4. **Update indexes** — `FEATURES.md`, `FEATURE-MAP.md`
+5. **Implement** — Follow your documentation
 
 ---
 

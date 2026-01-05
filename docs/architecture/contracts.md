@@ -2,6 +2,8 @@
 
 Shared interfaces, API patterns, and data contracts used across features.
 
+> **Template:** Delete unused sections. Keep only what applies to your project.
+
 ---
 
 ## API Patterns

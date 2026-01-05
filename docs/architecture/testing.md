@@ -2,6 +2,8 @@
 
 How to test this codebase.
 
+> **Template:** Delete unused sections. Keep only what applies to your project.
+
 ---
 
 ## Quick Reference
