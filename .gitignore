@@ -1,0 +1,71 @@
+# AI-Friendly Documentation System
+# .gitignore template
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Local configuration (user-specific settings)
+.claude/*.local.md
+docs/**/*.local.md
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Node.js (if your project uses it)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if your project uses it)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Build outputs (customize for your project)
+dist/
+build/
+*.exe
+*.out
+*.app
+
+# Sensitive information (never commit these)
+.env
+.env.local
+.env.*.local
+secrets.yml
+credentials.json
+*.key
+*.pem
+
+# Project-specific (add your own)
+# private/
+# sensitive-docs/
+
+# Keep these directories but ignore their contents (except README)
+# Uncomment if you want empty directories tracked
+# !docs/features/.gitkeep
+# !docs/research/.gitkeep

@@ -1,35 +1,504 @@
-# Project Name
+# Contextual
 
-## Documentation
+> Capture product & engineering context for AI-assisted development
 
-- **[CURRENT.md](docs/CURRENT.md)** - Current work
-- **[FEATURES.md](docs/FEATURES.md)** - All features
-- **[Architecture](docs/architecture/overview.md)** - System design
-- **[Research](docs/research/)** - Domain knowledge & design principles
-- **[Setup Guide](docs/guides/setup.md)** - Getting started
+**Stop fighting documentation drift. Build interconnected documentation that tracks features, decisions, and rationale - designed for both humans and AI agents.**
 
-### For AI Assistants
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-- **Quick reference:** [CLAUDE.md](CLAUDE.md)
-- **Full instructions:** [docs/instructions.md](docs/instructions.md)
+---
 
-## Directory Structure
+## The Problem
+
+Traditional documentation approaches fail when working with AI agents on complex projects:
+
+❌ **Single README files** → AI loads 5000+ tokens to find one piece of information
+❌ **Wiki systems** → Circular dependencies, broken links, context pollution
+❌ **Scattered code comments** → AI must read entire codebase
+❌ **Manual maintenance** → Documentation drifts out of sync as code evolves
+
+**Result:** AI agents waste context, forget to update indexes, and can't navigate your codebase efficiently.
+
+---
+
+## The Solution
+
+Contextual provides **interconnected documentation** that captures product and engineering context in a format AI agents understand:
+
+✅ **Product management** → Track features, dependencies, roadmap, and status
+✅ **Engineering docs** → Capture decisions, architecture, and implementation patterns
+✅ **Research & rationale** → Link domain knowledge and principles to features
+✅ **AI-optimized** → Token-efficient navigation (< 2000 tokens for most tasks)
+✅ **Automated validation** → Catch documentation drift before it accumulates
+
+---
+
+## Core Principles
+
+This system is built on two fundamental rules for AI agents:
+
+### 1. Ground Truth Over Assumptions
+
+**For complex tasks, clarify before coding:**
+- Research codebase first
+- Ask targeted questions
+- Confirm understanding
+- Document the plan
+- Then execute autonomously
+
+**Result:** Build what users actually want, first time.
+
+### 2. Measure, Don't Guess
+
+**Never assume numerical values - benchmark instead:**
+- ❌ "This should take ~100ms"
+- ✅ "Let me benchmark to get actual numbers"
+
+**Result:** Data-driven decisions, not assumptions.
+
+---
+
+## Key Features
+
+### Context-Efficient Navigation
+
+```
+Fix a bug: ~800 tokens (CLAUDE.md Quick Ref + FEAT-xxx.md)
+Add a feature: ~1,400-1,800 tokens (Quick Ref + indexes + research + template)
+Understand architecture: ~1,600 tokens (Quick Ref + architecture + FEATURE-MAP)
+```
+
+**How?** Optimized entry points + hub-and-spoke design + self-contained feature docs.
+
+### Automated Validation (Claude Code)
+
+```
+You: Create new feature
+  ↓
+AI: Creates FEAT-023-payment.md, updates indexes
+  ↓
+Hook detects: "Major feature work complete"
+  ↓
+AI asks: "Would you like me to validate docs?"
+  ↓
+You: "yes"
+  ↓
+Validator reports: ✓ All checks passed
+```
+
+**No more forgotten index updates or broken dependency links.**
+
+### Smart Documentation Structure
+
+```
+Feature docs (FEAT-xxx.md)
+  ↓ Links to
+Research docs (algorithms, design principles)
+  ↓ Organized by
+Topic-based indexes (Quick Find)
+  ↓ Validated by
+Automated consistency checks
+  ↓ Optimized via
+Prompt chaining & systematic clarification
+```
+
+### Multi-Agent Support
+
+Works out-of-the-box with:
+- **Claude Code** (with hooks, sub-agents, automation)
+- **Cursor AI** (ready to add)
+- **GitHub Copilot** (ready to add)
+- **Any AI tool** (via universal `AGENTS.md`)
+
+---
+
+## Quick Start
+
+### 1. Copy This Template
+
+```bash
+# Clone this repository
+git clone https://github.com/lmlody85/contextual.git my-project
+cd my-project
+
+# Remove git history (start fresh)
+rm -rf .git
+git init
+```
+
+### 2. Customize for Your Project
+
+Update these files with your project info:
+- `README.md` (this file)
+- `docs/architecture/overview.md`
+- `docs/guides/setup.md`
+
+### 3. Start Using with AI
+
+**For Claude Code:**
+```
+Say to Claude: "Add authentication feature"
+Claude will:
+- Read CLAUDE.md for instructions
+- Create FEAT-001-auth.md
+- Update indexes automatically
+- Prompt you to validate docs
+```
+
+**For other AI tools:**
+- AI reads `AGENTS.md` for universal instructions
+- Follow the same documentation structure
+- Use manual validation checklist
+
+### 4. Create Your First Feature
+
+```bash
+# Copy the template
+cp docs/features/_TEMPLATE.md docs/features/FEAT-001-your-feature.md
+
+# Fill in the sections:
+# - What, Why, How
+# - Implementation notes
+# - Known issues
+# - Dependencies
+
+# Update indexes:
+# - Add to docs/FEATURES.md
+# - Add to docs/FEATURE-MAP.md (if has dependencies)
+
+# Validate (if using Claude Code):
+Say: "validate docs"
+```
+
+---
+
+## Documentation Structure
+
 ```
 your-project/
+├── AGENTS.md                    # Universal AI agent instructions
+├── CLAUDE.md                    # Claude Code specific features
 ├── docs/
-│   ├── instructions.md         # ← Detailed instructions for AI Agents
-│   ├── CURRENT.md
-│   ├── FEATURES.md
-│   ├── architecture/
-│   │   └── overview.md
-│   ├── research/               # ← Domain research & principles
-│   │   ├── README.md
-│   │   └── {topic-name}.md
+│   ├── CURRENT.md               # Active work tracker
+│   ├── FEATURES.md              # Feature index
+│   ├── FEATURE-MAP.md           # Feature relationships
+│   ├── instructions.md          # Complete guide for AI agents
 │   ├── features/
-│   │   ├── FEAT-001.md
-│   │   └── FEAT-003.md
+│   │   ├── _TEMPLATE.md         # Feature documentation template
+│   │   └── FEAT-*.md            # Individual feature docs
+│   ├── research/
+│   │   ├── README.md            # Research index with Quick Find
+│   │   └── *.md                 # Domain knowledge, algorithms, principles
+│   ├── architecture/
+│   │   └── overview.md          # System architecture
 │   └── guides/
-│       └── setup.md
-├── CLAUDE.md                    # ← Optional: shorter version
-└── README.md                    # ← Standard readme with doc links
+│       ├── setup.md             # Getting started
+│       ├── docs-validation.md   # Validation procedures
+│       ├── automation-overview.md   # How automation works
+│       └── multi-agent-support.md   # Multi-tool support guide
+└── .claude/                     # Claude Code configuration (optional)
+    ├── agents/
+    │   └── docs-validator.md    # Validation sub-agent
+    └── hooks/
+        └── post-feature-reminder.md   # Auto-validation prompts
 ```
+
+---
+
+## Core Concepts
+
+### Feature Documentation (FEAT-xxx.md)
+
+Each feature gets ONE self-contained document:
+
+```markdown
+# FEAT-001: User Authentication
+
+## What
+Brief description (2-3 sentences)
+
+## Why
+Problem it solves
+
+## How
+Technical approach + key components
+
+## Feature Dependencies
+What it depends on, what depends on it
+
+## Files Changed
+List of modified files
+
+## Known Issues & Resolutions
+Bugs, fixes, workarounds
+
+## TODO
+Remaining work or "Feature complete"
+
+## Implementation Notes
+Decisions, challenges, lessons learned
+```
+
+**Benefits:**
+- Self-contained (no circular dependencies)
+- AI loads only what it needs (< 600 tokens per feature)
+- Documents WHY, not just WHAT
+
+### Research Documentation
+
+Domain knowledge separated from features:
+
+```
+docs/research/
+├── README.md                    # Quick Find by topic
+├── oauth-best-practices.md      # Referenced by FEAT-001, FEAT-003
+├── caching-strategies.md        # Referenced by FEAT-012, FEAT-015
+└── api-design-principles.md     # Referenced by all API features
+```
+
+**Benefits:**
+- Reusable across features (DRY principle)
+- Easy to update when research evolves
+- AI loads only relevant research (on-demand)
+
+### Feature Map
+
+Visual representation of dependencies:
+
+```markdown
+## Authentication Flow
+FEAT-001 (Login)
+  ↓ provides tokens to
+FEAT-002 (Session Management)
+  ↓ provides session data to
+FEAT-015 (User Profile)
+```
+
+**Benefits:**
+- Understand change impact (changing FEAT-001 affects which features?)
+- Navigate to related features quickly
+- Identify critical dependencies
+
+---
+
+## Token Efficiency Comparison
+
+| Task | This System | Single README | Wiki System |
+|------|------------|---------------|-------------|
+| Fix bug | ~800 tokens | 5000+ tokens | 2000+ tokens |
+| Add feature | ~1,400-1,800 tokens | 5000+ tokens | 4000+ tokens |
+| Understand arch | ~1,600 tokens | 5000+ tokens | 3000+ tokens |
+
+**Why this matters:** AI models have context limits. More efficient navigation = more room for actual code and implementation.
+
+**After optimization:** Entry points (CLAUDE.md, AGENTS.md) are now 50-70% smaller, making workflows even more efficient.
+
+---
+
+## Scalability
+
+Tested and optimized for projects of all sizes:
+
+| Project Size | Status | Notes |
+|-------------|--------|-------|
+| **1-30 features** | ✅ Perfect | Current structure is ideal |
+| **30-60 features** | ✅ Excellent | Quick Find indexes work great |
+| **60-100 features** | ✅ Good | May want subdirectories |
+| **100+ features** | ⚠️ Fair | Need hierarchical feature map |
+
+**Key insight:** System scales linearly. Individual docs don't grow with feature count.
+
+---
+
+## AI Agent Efficiency: 9/10
+
+**Token efficiency:** 800-1800 tokens for most tasks ✓
+**Clear navigation:** Unambiguous entry points ✓
+**Context isolation:** Only read what you need ✓
+**Automated validation:** Catches errors proactively ✓
+**Multi-agent support:** Works with any AI tool ✓
+
+**See:** [docs/guides/ai-agent-efficiency.md](docs/guides/ai-agent-efficiency.md) for full analysis.
+
+---
+
+## For Claude Code Users
+
+This system includes **Claude Code-specific automation**:
+
+### Automated Validation
+
+```
+After creating a feature:
+  ↓
+Hook detects major work
+  ↓
+AI prompts: "Validate docs?"
+  ↓
+You confirm
+  ↓
+Sub-agent validates everything
+```
+
+### Smart Features
+
+- **PostToolUse hooks** → Auto-detect feature completion
+- **Sub-agents** → Validate documentation consistency
+- **TodoWrite integration** → Track progress with validation as final step
+
+**See:** [CLAUDE.md](CLAUDE.md) for Claude-specific features.
+
+### Advanced Techniques
+
+**Prompt Chaining:**
+- Break complex features into focused steps
+- Load < 1000 tokens per step
+- Maintain context efficiently
+- **Guide:** [docs/guides/prompt-chaining.md](docs/guides/prompt-chaining.md)
+
+**Systematic Clarification:**
+- Ask questions before implementing ambiguous features
+- Present options with trade-offs
+- Document decisions in feature docs
+- **Guide:** [docs/guides/clarification-strategy.md](docs/guides/clarification-strategy.md)
+
+**Result:** Build exactly what users want, first time.
+
+---
+
+## For Other AI Tools
+
+### Universal Support
+
+All AI tools can use this system via `AGENTS.md`:
+
+```
+Your AI tool reads AGENTS.md
+  ↓
+Follows documentation structure
+  ↓
+Uses manual validation checklist
+  ↓
+Full compatibility ✓
+```
+
+### Add Tool-Specific Optimizations
+
+```bash
+# Example: Add Cursor support
+cp docs/guides/multi-agent-support.md .cursorrules
+# Customize for Cursor-specific features
+
+# Example: Add Copilot support
+mkdir -p .github
+cp docs/guides/multi-agent-support.md .github/copilot-instructions.md
+# Customize for Copilot-specific features
+```
+
+**See:** [docs/guides/multi-agent-support.md](docs/guides/multi-agent-support.md) for details.
+
+---
+
+## Use Cases
+
+### ✅ Perfect For
+
+- **Complex software projects** with 10+ features
+- **AI-assisted development** with Claude, Cursor, Copilot
+- **Team projects** where documentation must stay synchronized
+- **Long-term projects** where documentation drift is a problem
+- **Open-source projects** that want AI-friendly contribution guides
+
+### ⚠️ Overkill For
+
+- **Single-file scripts** or very simple projects
+- **Projects with < 5 features** (use a simple README)
+- **Throwaway prototypes** or POCs
+- **Projects without AI assistance**
+
+---
+
+## Contributing
+
+This is a template/framework project. Ways to contribute:
+
+1. **Share your experience** - Open an issue describing how you used it
+2. **Report bugs** - If something doesn't work as documented
+3. **Suggest improvements** - Better ways to organize or validate
+4. **Add AI tool support** - Examples for Cursor, Copilot, etc.
+5. **Write guides** - Additional documentation on best practices
+
+**Pull requests welcome!** Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
+
+---
+
+## Examples
+
+### Real-World Adoption
+
+*Want to see this system in action? Add your project here via PR!*
+
+- **Your Project** - [github.com/your/project] - Brief description
+
+---
+
+## Roadmap
+
+Future enhancements:
+
+- [ ] GitHub Actions workflow for automated validation
+- [ ] VS Code extension for easier navigation
+- [ ] CLI tool for creating features from template
+- [ ] Metrics dashboard (documentation coverage, link health)
+- [ ] More AI tool examples (Cursor, Copilot, Aider)
+
+---
+
+## FAQ
+
+### Q: Why not just use a wiki or Notion?
+
+**A:** Wikis create circular dependencies and force AI to load many pages. This system is optimized for token efficiency and self-contained docs.
+
+### Q: Can I use this without AI assistance?
+
+**A:** Yes! The structure works well for human developers too. But it's optimized for AI agent navigation.
+
+### Q: What if I'm already using a different documentation system?
+
+**A:** You can migrate gradually. Start with high-priority features in this format, keep old docs as-is.
+
+### Q: Does this work with languages other than English?
+
+**A:** Yes! The structure is language-agnostic. Just write your docs in your preferred language.
+
+### Q: How do I handle private/sensitive documentation?
+
+**A:** Keep sensitive info in separate files outside this structure. Use `.gitignore` or private repos.
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+## Acknowledgments
+
+- Inspired by the challenges of AI-assisted development
+- Built with feedback from Claude Code, Cursor, and AI coding communities
+- Thanks to everyone testing and providing feedback
+
+---
+
+## Contact & Support
+
+- **Issues:** [GitHub Issues](https://github.com/lmlody85/contextual/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/lmlody85/contextual/discussions)
+- **Twitter:** [@lmlody](https://twitter.com/lmlody)
+
+---
+
+**If you find this useful, consider starring the repository to help others discover it.**

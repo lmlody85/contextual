@@ -18,18 +18,56 @@ Research docs answer the "why" questions:
 
 *No research documents yet*
 
+### Quick Find by Topic
+
+When looking for research, search by relevant keywords:
+
+**Authentication & Authorization:**
+*No research yet - add [oauth-best-practices.md], [session-security.md], etc.*
+
+**API Design:**
+*No research yet - add [rest-principles.md], [error-handling.md], etc.*
+
+**Performance & Optimization:**
+*No research yet - add [caching-strategies.md], [db-optimization.md], etc.*
+
+**Data & Storage:**
+*No research yet - add [data-modeling.md], [migration-patterns.md], etc.*
+
+**Frontend & UX:**
+*No research yet - add [component-architecture.md], [state-management.md], etc.*
+
+**Testing & Quality:**
+*No research yet - add [testing-strategy.md], [ci-cd-patterns.md], etc.*
+
+**Security:**
+*No research yet - add [security-checklist.md], [vulnerability-prevention.md], etc.*
+
+**Domain-Specific:**
+*No research yet - add domain-specific research files*
+
+---
+
 ### How to Add Research
 
 When you discover important domain knowledge:
 
 1. **Copy the template**: Use `_TEMPLATE.md` in this directory as a starting point
 2. **Create a new file**: Save as `topic-name.md` (use descriptive kebab-case name)
-3. **Add to this README**: Link from the appropriate category below
+3. **Add to this README**:
+   - Link from the appropriate "Quick Find" category above
+   - Add to the "All Research" list below
 4. **Link from feature docs**: Reference from relevant `FEAT-xxx.md` files
 
 ---
 
-## Categories
+## All Research Documents (Alphabetical)
+
+*No research documents yet*
+
+---
+
+## Categories Reference
 
 ### Architecture & Design
 *Research about system design, patterns, and architecture*

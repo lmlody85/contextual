@@ -2,6 +2,24 @@
 
 This document provides an index of all features in the project.
 
+## Finding Features
+
+**By keyword:** Use Grep to search feature files:
+```bash
+grep -r "authentication" docs/features/
+grep -r "payment" docs/features/
+```
+
+**By topic:** Common feature groupings:
+- **Authentication**: *Add FEAT-xxx links as they're created*
+- **Payment/Billing**: *Add FEAT-xxx links as they're created*
+- **User Management**: *Add FEAT-xxx links as they're created*
+- **Data Processing**: *Add FEAT-xxx links as they're created*
+
+**By dependency:** See [FEATURE-MAP.md](FEATURE-MAP.md) for feature relationships
+
+---
+
 ## Feature Categories
 
 ### Core Features

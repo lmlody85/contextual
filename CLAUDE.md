@@ -1,46 +1,95 @@
-# CLAUDE.md
+# Claude Code Instructions
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+> **⚠️ READ THIS FIRST:** Before reading this file, read [AGENTS.md](AGENTS.md) for the complete documentation system. This file contains **Claude Code-specific features only** (hooks, sub-agents, automation).
 
 ---
 
-# AI Agent Instructions
+## Reading Order
 
-## Full Documentation Structure
+1. **First:** Read [AGENTS.md](AGENTS.md) - Core documentation system (required)
+2. **Then:** Read this file - Claude Code optimizations (recommended)
 
-**Detailed instructions:** [docs/instructions.md](docs/instructions.md)
+**AGENTS.md provides:**
+- Documentation structure & navigation
+- Core principles (Ground Truth, Measure Don't Guess)
+- Feature format & research system
+- Complete workflows & best practices
 
-This file contains complete documentation on:
-- How our docs are organized
-- Feature documentation format
-- Research & domain knowledge structure
-- Code conventions
-- Common workflows
-- Where to find everything
+**This file adds:**
+- Automated validation (hooks + sub-agents)
+- TodoWrite integration
+- Claude Code-optimized shortcuts
 
-## Quick Start (TL;DR)
+---
 
-**Before working on anything:**
-1. Read `/docs/CURRENT.md` - what we're working on
-2. Check `/docs/research/` - relevant domain knowledge & principles
-3. Read relevant `/docs/features/FEAT-xxx.md` - feature details
-4. Update docs as you implement
+## Claude Code Features
 
-**Key files:**
-- `/docs/CURRENT.md` - Current work
-- `/docs/FEATURES.md` - Feature list
-- `/docs/research/README.md` - Domain knowledge index
-- `/docs/features/FEAT-xxx.md` - Feature docs
-- `/docs/architecture/overview.md` - System design
-- `/docs/guides/setup.md` - Setup & workflows
+### Automated Validation
 
-**Rules:**
-- Check research docs for relevant domain knowledge first
-- Always read feature docs before starting
-- Link to research docs from feature docs
-- Update FEAT-xxx.md with implementation notes
-- Document bugs in "Known Issues" section
-- Update research docs if you discover new findings
-- Follow naming: `FEAT-###`, `API-###`, `INFRA-###`
+**How it works:**
+- PostToolUse hook detects feature creation/completion
+- AI agent prompts: "Would you like me to validate docs?"
+- You say "validate docs" or "yes"
+- Validator sub-agent checks consistency and reports issues
 
-**For complete details:** See [docs/instructions.md](docs/instructions.md)
+**Manual trigger:** Say `validate docs`, `check documentation`, or `lint docs`
+
+**See:** [.claude/README.md](.claude/README.md) for configuration
+
+### TodoWrite Integration
+
+Always include "Validate documentation" as final todo step:
+
+```markdown
+Example:
+- [ ] Create FEAT-xxx.md
+- [ ] Implement feature
+- [ ] Write tests
+- [ ] Update indexes
+- [ ] Validate documentation ← Always include!
+```
+
+### Smart Hooks
+
+**post-feature-validation-reminder** (`.claude/hooks/post-feature-reminder.md`):
+- Detects new FEAT files, completed features, or major doc updates
+- Prompts AI agent to offer validation
+- Non-intrusive (ask, don't auto-run)
+
+---
+
+## Quick Reference
+
+| Task | Action |
+|------|--------|
+| Start feature work | Create TodoWrite list with "Validate docs" as final step |
+| Fix bug | Find FEAT → Fix → Update "Known Issues" → Auto-validation prompt |
+| Add feature | Follow AGENTS.md workflow → Auto-validation prompt |
+| Validate docs | Say "validate docs" (or wait for automatic prompt) |
+| Find research | Check research/README.md Quick Find or grep |
+| See current work | Read CURRENT.md (~200 tokens) |
+
+---
+
+## Advanced Techniques
+
+**For complex tasks, use these strategies:**
+
+- **Prompt Chaining:** Break tasks into focused steps - [docs/guides/prompt-chaining.md](docs/guides/prompt-chaining.md)
+- **Clarification Strategy:** Ask questions before implementing - [docs/guides/clarification-strategy.md](docs/guides/clarification-strategy.md)
+- **Automation Details:** How validation works - [docs/guides/automation-overview.md](docs/guides/automation-overview.md)
+
+---
+
+## Complete Documentation
+
+| Resource | Purpose |
+|----------|---------|
+| [AGENTS.md](AGENTS.md) | Universal documentation system (start here) |
+| [docs/instructions.md](docs/instructions.md) | Complete AI agent guide |
+| [.claude/README.md](.claude/README.md) | Claude Code configuration |
+| [docs/guides/](docs/guides/) | Specialized techniques & strategies |
+
+---
+
+**Remember:** Claude Code's hooks and sub-agents automate validation and reduce cognitive load. Trust the automation, but stay in control - you approve all actions.
