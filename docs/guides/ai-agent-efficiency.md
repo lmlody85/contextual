@@ -9,7 +9,7 @@ This document analyzes how efficiently AI agents can navigate and maintain this 
 **Overall Rating: 9/10 for AI Agent Efficiency**
 
 ✅ **Strengths:**
-- Extremely token-efficient (800-1800 tokens for most tasks)
+- Extremely token-efficient (1,000-2,000 tokens for most tasks)
 - Clear navigation with unambiguous entry points
 - Task-based workflows reduce cognitive load
 - Context isolation (only read what you need)
@@ -30,34 +30,33 @@ This document analyzes how efficiently AI agents can navigate and maintain this 
 
 #### Fix a Bug
 ```
-1. Read CLAUDE.md Quick Ref: ~200 tokens
-2. Read FEAT-xxx.md: ~600 tokens
-Total: ~800 tokens ✓ Excellent
+1. Read Quick Ref: ~200 tokens
+2. Read FEAT-xxx.md: ~800 tokens
+Total: ~1,000 tokens ✓ Excellent
 ```
 
 #### Add New Feature
 ```
-1. Read CLAUDE.md Quick Ref: ~200 tokens
-2. Read FEATURES.md: ~200 tokens
-3. Read research/README.md Quick Find: ~400 tokens
-4. Read research doc: ~600 tokens
-5. Create feature doc: 0 tokens (tool use)
-Total: ~1400 tokens ✓ Excellent
+1. Read Quick Ref: ~200 tokens
+2. Read FEATURES.md: ~400 tokens
+3. Read research/README.md Quick Find: ~300 tokens
+4. Read _TEMPLATE.md: ~800 tokens
+Total: ~1,700 tokens ✓ Excellent
 ```
 
 #### Understand Architecture
 ```
-1. Read CLAUDE.md Quick Ref: ~200 tokens
-2. Read architecture/overview.md: ~1000 tokens
-3. Read FEATURE-MAP.md: ~400 tokens
-Total: ~1600 tokens ✓ Good
+1. Read Quick Ref: ~200 tokens
+2. Read architecture/overview.md: ~1,000 tokens
+3. Read FEATURE-MAP.md: ~800 tokens
+Total: ~2,000 tokens ✓ Good
 ```
 
 ### Comparison to Alternative Systems
 
 | System | Bug Fix | New Feature |
 |--------|---------|-------------|
-| **This system** | ~800 | ~1800 |
+| **This system** | ~1,000 | ~1,700 |
 | Single README | 5000+ | 5000+ |
 | Wiki (multiple pages) | 2000+ | 4000+ |
 | Code comments only | 10000+ | 10000+ |
@@ -109,7 +108,7 @@ grep -r "keyword" docs/features/  # Fast, precise
 ### Context Loading: 10/10
 
 **This system's advantage:**
-- Read only what you need (800-1600 tokens typical)
+- Read only what you need (1,000-2,000 tokens typical)
 - No circular dependencies
 - Clear sections let you skip irrelevant parts
 - Informative links (not blind references)
@@ -171,7 +170,7 @@ grep -r "keyword" docs/features/  # Fast, precise
 
 **This system is highly optimized for AI agents:**
 
-✓ **Token efficiency:** 800-1800 tokens for most tasks
+✓ **Token efficiency:** 1,000-2,000 tokens for most tasks
 ✓ **Clear navigation:** Unambiguous entry points
 ✓ **Scalability:** Works well from 1 to 60+ features
 ✓ **Maintainability:** Validation agent catches errors

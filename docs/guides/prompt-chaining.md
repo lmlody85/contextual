@@ -47,7 +47,7 @@ Step 4: Testing & Validation
  - Run 'validate docs' to check consistency"
 ```
 
-**Total tokens:** ~1800 vs 5000+ for one big prompt
+**Total tokens:** ~1,700 vs 5000+ for one big prompt
 
 ### Chain 2: Fixing a Bug
 

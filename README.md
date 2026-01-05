@@ -29,7 +29,7 @@ Contextual provides **interconnected documentation** that captures product and e
 ✅ **Product management** → Track features, dependencies, roadmap, and status
 ✅ **Engineering docs** → Capture decisions, architecture, and implementation patterns
 ✅ **Research & rationale** → Link domain knowledge and principles to features
-✅ **AI-optimized** → Token-efficient navigation (< 2000 tokens for most tasks)
+✅ **AI-optimized** → Token-efficient navigation (~1,000-2,000 tokens for most tasks)
 ✅ **Automated validation** → Catch documentation drift before it accumulates
 
 ---
@@ -39,45 +39,28 @@ Contextual provides **interconnected documentation** that captures product and e
 ### Context-Efficient Navigation
 
 ```
-Fix a bug: ~800 tokens (CLAUDE.md Quick Ref + FEAT-xxx.md)
-Add a feature: ~1,400-1,800 tokens (Quick Ref + indexes + research + template)
-Understand architecture: ~1,600 tokens (Quick Ref + architecture + FEATURE-MAP)
+Fix a bug: ~1,000 tokens (Quick Ref + FEAT-xxx.md)
+Add a feature: ~1,500-1,800 tokens (Quick Ref + indexes + research + template)
+Understand architecture: ~2,000 tokens (Quick Ref + architecture + FEATURE-MAP)
 ```
 
 **How?** Optimized entry points + hub-and-spoke design + self-contained feature docs.
 
 ### Automated Validation (Claude Code)
 
-**How it works:**
-1. **PostToolUse Hook** monitors file operations and detects major feature work
-2. When complete, AI automatically prompts: "Would you like me to validate docs?"
-3. **Validator Sub-Agent** runs comprehensive checks:
-   - All features indexed in FEATURES.md
-   - Dependencies are bidirectional in FEATURE-MAP.md
-   - Research links valid
-   - No orphaned files
+Hooks detect when you complete major work and prompt for validation. A sub-agent then checks indexes, dependencies, and links automatically.
 
-**Result:** Never forget to update indexes or maintain consistency. The system reminds you proactively.
+**Result:** Never forget to update indexes. See [For Claude Code Users](#for-claude-code-users) for details.
 
 ### AI Agent Guidance
 
-Built-in strategies help AI agents work more effectively:
+Built-in strategies for effective AI-assisted development:
 
-**Prompt Chaining:**
-- Break complex features into focused steps (research → document → implement → test → validate)
-- Each step loads < 1000 tokens
-- Maintains context efficiently across the chain
+- **Clarify First:** AI asks questions BEFORE implementing ambiguous features
+- **Chain Prompts:** Break complex tasks into focused steps (< 1000 tokens each)
+- **Measure, Don't Guess:** Benchmark performance, document actual data
 
-**Systematic Clarification (AskUserQuestion):**
-- AI asks clarifying questions BEFORE implementing ambiguous features
-- Presents options with trade-offs for architectural decisions
-- Documents decisions in feature files
-- **Result:** Build what users actually want, first time
-
-**Measure, Don't Guess:**
-- AI benchmarks performance instead of estimating
-- Documents actual measurements in feature files
-- **Result:** Data-driven decisions, not assumptions
+See [guides/](docs/guides/) for detailed strategies.
 
 ### Smart Documentation Structure
 
@@ -171,7 +154,6 @@ your-project/
 │   ├── CURRENT.md               # Active work tracker
 │   ├── FEATURES.md              # Feature index
 │   ├── FEATURE-MAP.md           # Feature relationships
-│   ├── guides/                  # Specialized guides and strategies
 │   ├── features/
 │   │   ├── _TEMPLATE.md         # Feature documentation template
 │   │   └── FEAT-*.md            # Individual feature docs
@@ -183,8 +165,9 @@ your-project/
 │   └── guides/
 │       ├── setup.md             # Getting started
 │       ├── docs-validation.md   # Validation procedures
-│       ├── automation-overview.md   # How automation works
-│       └── multi-agent-support.md   # Multi-tool support guide
+│       ├── prompt-chaining.md   # Break complex tasks into steps
+│       ├── clarification-strategy.md  # Ask before implementing
+│       └── multi-agent-support.md     # Multi-tool support guide
 └── .claude/                     # Claude Code configuration (optional)
     ├── agents/
     │   └── docs-validator.md    # Validation sub-agent
@@ -274,9 +257,9 @@ FEAT-015 (User Profile)
 
 | Task | This System | Single README | Wiki System |
 |------|------------|---------------|-------------|
-| Fix bug | ~800 tokens | 5000+ tokens | 2000+ tokens |
-| Add feature | ~1,400-1,800 tokens | 5000+ tokens | 4000+ tokens |
-| Understand arch | ~1,600 tokens | 5000+ tokens | 3000+ tokens |
+| Fix bug | ~1,000 tokens | 5000+ tokens | 2000+ tokens |
+| Add feature | ~1,500-1,800 tokens | 5000+ tokens | 4000+ tokens |
+| Understand arch | ~2,000 tokens | 5000+ tokens | 3000+ tokens |
 
 **Why this matters:** AI models have context limits. More efficient navigation = more room for actual code and implementation.
 
@@ -299,7 +282,7 @@ Tested and optimized for projects of all sizes:
 
 ## What You Get
 
-✓ **Token efficiency:** 800-1800 tokens for most tasks
+✓ **Token efficiency:** 1,000-2,000 tokens for most tasks
 ✓ **Clear navigation:** Unambiguous entry points
 ✓ **Context isolation:** Only read what you need
 ✓ **Automated validation:** Catches errors proactively (Claude Code)
