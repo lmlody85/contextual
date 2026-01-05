@@ -146,7 +146,7 @@ your-project/
 ├── docs/
 │   ├── features/          # Self-contained feature docs (FEAT-xxx.md)
 │   ├── research/          # Reusable domain knowledge
-│   └── architecture/      # System design
+│   └── architecture/      # System design, contracts, testing, ADRs
 ├── prompts/               # Reusable prompts for AI agents
 └── .claude/               # Claude Code automation (optional)
 ```

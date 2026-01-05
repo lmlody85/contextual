@@ -125,6 +125,9 @@ You: Validate docs, commit
 | `/docs/research/README.md` | Domain knowledge index | Before implementing |
 | `/docs/features/FEAT-xxx.md` | Individual feature docs | Working on feature |
 | `/docs/architecture/overview.md` | System design | Understanding architecture |
+| `/docs/architecture/contracts.md` | API patterns, data schemas | Building integrations |
+| `/docs/architecture/testing.md` | Test strategy, commands | Writing/running tests |
+| `/docs/architecture/decisions/` | ADRs | Understanding "why" |
 
 ---
 

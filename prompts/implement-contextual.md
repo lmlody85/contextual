@@ -66,7 +66,11 @@ Answer these questions based on your current understanding of the codebase. Be h
     ├── research/
     │   └── README.md              # Domain knowledge index
     └── architecture/
-        └── overview.md            # System design
+        ├── overview.md            # System design
+        ├── contracts.md           # API patterns, data schemas (optional)
+        ├── testing.md             # Test strategy (optional)
+        └── decisions/             # ADRs (optional)
+            └── _TEMPLATE.md
 ```
 
 ## File Contents
@@ -273,14 +277,107 @@ Knowledge that applies to multiple features. Feature-specific decisions go in FE
 
 ## Key Decisions
 
-*Document architectural decisions and rationale*
+See [decisions/](decisions/) for Architecture Decision Records.
+
+---
+
+## Related Docs
+
+| Doc | Purpose |
+|-----|---------|
+| [contracts.md](contracts.md) | API patterns, data schemas |
+| [testing.md](testing.md) | Test strategy, commands |
+| [decisions/](decisions/) | ADRs |
+```
+
+### docs/architecture/contracts.md (optional)
+
+```markdown
+# Contracts & Patterns
+
+Shared interfaces and patterns used across features.
+
+## API Patterns
+
+### Request/Response Format
+*Document standard API format*
+
+### Error Handling
+*Document error response structure*
+
+## Data Contracts
+
+### Entity: *Name*
+*Schema or type definition*
+
+**Used by:** FEAT-xxx, FEAT-yyy
+
+## Agent Contracts (if applicable)
+
+### Agent Configuration
+*Standard config structure*
+
+### Agent Communication
+**Input:** *format*
+**Output:** *format*
+```
+
+### docs/architecture/testing.md (optional)
+
+```markdown
+# Testing Strategy
+
+## Quick Reference
+
+| Test Type | Command | Location |
+|-----------|---------|----------|
+| Unit | *cmd* | *path* |
+| Integration | *cmd* | *path* |
+| E2E | *cmd* | *path* |
+
+## Writing Tests
+
+### Unit Tests
+**When:** Pure functions, utilities
+**Pattern:** *show convention*
+
+### Integration Tests
+**When:** Module boundaries, APIs
+**Pattern:** *show convention*
+
+## Coverage
+**Target:** *X%*
+**Check:** *command*
+```
+
+### docs/architecture/decisions/_TEMPLATE.md (optional)
+
+```markdown
+# ADR-###: Decision Title
+
+**Status:** Proposed | Accepted | Deprecated
+**Date:** YYYY-MM-DD
+
+## Context
+*What triggered this decision?*
+
+## Decision
+*What was decided?*
+
+## Consequences
+**Positive:** *benefits*
+**Negative:** *trade-offs*
+
+## Alternatives Considered
+| Option | Pros | Cons | Why rejected |
+|--------|------|------|--------------|
 ```
 
 ## Implementation Steps
 
 1. **Create directory structure:**
    ```bash
-   mkdir -p docs/features docs/research docs/architecture
+   mkdir -p docs/features docs/research docs/architecture/decisions
    ```
 
 2. **Create all template files** listed above
@@ -307,7 +404,12 @@ Knowledge that applies to multiple features. Feature-specific decisions go in FE
    - Tech stack
    - Any obvious architectural decisions
 
-8. **Verify consistency:**
+8. **Optional: Fill in architecture details** (if patterns exist):
+   - `contracts.md` — Document API patterns, data schemas, agent interfaces
+   - `testing.md` — Document test commands, patterns, coverage targets
+   - `decisions/ADR-001-xxx.md` — Document key architectural decisions
+
+9. **Verify consistency:**
    - Every FEAT file is listed in FEATURES.md
    - Dependencies are bidirectional
    - All file paths in "Files Changed" exist
