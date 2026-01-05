@@ -95,7 +95,7 @@ AGENTS.md (Universal)
 
 ## Why This Approach?
 
-### ✅ Benefits
+### Benefits
 
 **1. No Duplication (DRY)**
 - Core instructions written once in AGENTS.md
@@ -117,19 +117,19 @@ AGENTS.md (Universal)
 - No confusion about what goes where
 - Easy to understand structure
 
-### ⚠️ Alternative Approaches (Why Not Used)
+### Alternative Approaches (Why Not Used)
 
-**❌ Single file (CLAUDE.md only):**
+**Single file (CLAUDE.md only):**
 - Problem: Locks you into one tool
 - Problem: Other tools can't use it
 - Problem: Not future-proof
 
-**❌ Multiple independent files:**
+**Multiple independent files:**
 - Problem: Duplication (same instructions repeated)
 - Problem: Hard to maintain consistency
 - Problem: Updates must happen in multiple places
 
-**❌ Tool-agnostic only (AGENTS.md only):**
+**Tool-agnostic only (AGENTS.md only):**
 - Problem: Can't leverage tool-specific features
 - Problem: Misses optimization opportunities
 - Problem: One-size-fits-all compromises
@@ -216,7 +216,7 @@ Copilot doesn't have validation tools, so:
 
 ### What Goes in AGENTS.md (Universal)
 
-✅ **Include:**
+**Include:**
 - Documentation system structure
 - Feature documentation format
 - Research documentation system
@@ -226,7 +226,7 @@ Copilot doesn't have validation tools, so:
 - Navigation shortcuts
 - Token efficiency guidelines
 
-❌ **Don't include:**
+**Don't include:**
 - Tool-specific features (hooks, sub-agents)
 - Tool-specific commands
 - Tool-specific workflows
@@ -234,14 +234,14 @@ Copilot doesn't have validation tools, so:
 
 ### What Goes in Tool-Specific Files
 
-✅ **Include:**
+**Include:**
 - Tool-specific features (hooks, sub-agents, etc.)
 - Tool-specific commands
 - Tool-specific workflows
 - How to leverage tool's unique capabilities
 - Reference to AGENTS.md for core instructions
 
-❌ **Don't include:**
+**Don't include:**
 - Core documentation system (duplicate from AGENTS.md)
 - Universal instructions (already in AGENTS.md)
 - Feature format (already in AGENTS.md)
@@ -268,7 +268,7 @@ Copilot doesn't have validation tools, so:
 
 ## Current Tool Support
 
-### ✅ Fully Supported
+### Fully Supported
 
 **Claude Code** (`CLAUDE.md`)
 - Automated validation via hooks
@@ -353,11 +353,11 @@ If you already have a `CLAUDE.md` file:
 ## Summary
 
 **The hybrid approach provides:**
-- ✅ Universal compatibility (AGENTS.md)
-- ✅ Tool optimization (tool-specific files)
-- ✅ No duplication (DRY principle)
-- ✅ Easy maintenance (update one place)
-- ✅ Future-proof (new tools work out of the box)
+- Universal compatibility (AGENTS.md)
+- Tool optimization (tool-specific files)
+- No duplication (DRY principle)
+- Easy maintenance (update one place)
+- Future-proof (new tools work out of the box)
 
 **Structure:**
 ```

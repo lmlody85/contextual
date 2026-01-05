@@ -7,9 +7,9 @@ This document explains how documentation validation is automated in this project
 ## The Problem
 
 When implementing features, it's easy to forget to update all documentation:
-- Create `FEAT-023.md` ✓
-- Update `FEATURES.md` index ❌ **Forgot!**
-- Update `FEATURE-MAP.md` ❌ **Forgot!**
+- Create `FEAT-023.md` — Done
+- Update `FEATURES.md` index — **Forgot!**
+- Update `FEATURE-MAP.md` — **Forgot!**
 - Result: Orphaned features, broken relationships
 
 ---
@@ -54,11 +54,11 @@ Instead of relying on memory, the system **automatically detects major feature w
 - Automatic prompt from hook
 
 **Checks:**
-- ✓ All FEAT files in FEATURES.md index
-- ✓ Dependencies are bidirectional
-- ✓ Research links are valid
-- ✓ Feature map includes dependencies
-- ✓ No orphaned files
+- All FEAT files in FEATURES.md index
+- Dependencies are bidirectional
+- Research links are valid
+- Feature map includes dependencies
+- No orphaned files
 
 **Output:** Detailed report with specific fix instructions
 
@@ -68,18 +68,18 @@ Instead of relying on memory, the system **automatically detects major feature w
 
 ### Why Ask Instead of Auto-Run?
 
-**✅ Ask-first approach (chosen):**
+**Ask-first approach (chosen):**
 ```
 Hook → Prompts AI to ask user → User decides → Validator runs
 ```
 
 **Benefits:**
-- ✓ User stays in control
-- ✓ Non-intrusive (easy to decline)
-- ✓ Only runs when user wants it
-- ✓ Automatic reminder prevents forgetting
+- User stays in control
+- Non-intrusive (easy to decline)
+- Only runs when user wants it
+- Automatic reminder prevents forgetting
 
-**❌ Auto-run approach (rejected):**
+**Auto-run approach (rejected):**
 ```
 Hook → Automatically runs validator → Reports issues
 ```
@@ -91,18 +91,18 @@ Hook → Automatically runs validator → Reports issues
 
 ### Why Hook-Based Detection?
 
-**✅ Hook-based (chosen):**
+**Hook-based (chosen):**
 ```
 Hook automatically detects conditions → AI agent prompted
 ```
 
 **Benefits:**
-- ✓ Always detects major feature work
-- ✓ Consistent behavior
-- ✓ No reliance on AI memory
-- ✓ Works across sessions
+- Always detects major feature work
+- Consistent behavior
+- No reliance on AI memory
+- Works across sessions
 
-**❌ Manual approach (rejected):**
+**Manual approach (rejected):**
 ```
 AI agent must remember to ask about validation
 ```
@@ -117,22 +117,22 @@ AI agent must remember to ask about validation
 ## Benefits
 
 ### For Users
-- ✅ Never forget to validate documentation
-- ✅ Stay in control (prompted, not auto-run)
-- ✅ Catch errors before they accumulate
-- ✅ Non-intrusive workflow
+- Never forget to validate documentation
+- Stay in control (prompted, not auto-run)
+- Catch errors before they accumulate
+- Non-intrusive workflow
 
 ### For AI Agents
-- ✅ Clear signal when to offer validation
-- ✅ No need to remember across turns
-- ✅ Consistent behavior
-- ✅ Reduced cognitive load
+- Clear signal when to offer validation
+- No need to remember across turns
+- Consistent behavior
+- Reduced cognitive load
 
 ### For Documentation Quality
-- ✅ Always up-to-date indexes
-- ✅ No orphaned features
-- ✅ Bidirectional dependencies maintained
-- ✅ Reduced documentation drift
+- Always up-to-date indexes
+- No orphaned features
+- Bidirectional dependencies maintained
+- Reduced documentation drift
 
 ---
 
@@ -146,9 +146,9 @@ AI agent must remember to ask about validation
 
 **Smart automation = Best of both worlds**
 
-✅ Automatic detection (no need to remember)
-✅ User control (ask, don't auto-run)
-✅ Non-intrusive (easy to decline)
-✅ Always timely (right after major work)
+- Automatic detection (no need to remember)
+- User control (ask, don't auto-run)
+- Non-intrusive (easy to decline)
+- Always timely (right after major work)
 
 The system ensures documentation stays consistent without interrupting your workflow or removing your control.

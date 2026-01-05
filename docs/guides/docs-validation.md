@@ -59,9 +59,9 @@ Use this checklist after creating or updating documentation:
 ```
 
 **Triggers automatic prompt when:**
-- ✅ New `FEAT-xxx.md` file is created
-- ✅ Feature TODO section marked "Feature complete"
-- ✅ Multiple doc files updated (FEATURES.md, FEATURE-MAP.md, etc.)
+- New `FEAT-xxx.md` file is created
+- Feature TODO section marked "Feature complete"
+- Multiple doc files updated (FEATURES.md, FEATURE-MAP.md, etc.)
 
 **Benefits:**
 - No need to remember to validate
@@ -140,7 +140,7 @@ if git diff --cached --name-only | grep -q 'docs/features/FEAT-.*\.md'; then
   # Exit 1 if validation fails
 fi
 
-echo "✓ Documentation validation passed"
+echo "Documentation validation passed"
 ```
 
 ---

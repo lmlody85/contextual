@@ -73,13 +73,13 @@ Clarify → Research → Document → Implement → Test → Validate → Commit
 **Never guess numerical values - benchmark instead.**
 
 **Examples:**
-- ❌ "This should take ~100ms" → ✅ "Let me benchmark to get actual numbers"
-- ❌ "Will handle ~1000 req/s" → ✅ "I'll measure under realistic load"
+- Not: "This should take ~100ms" → Better: "Let me benchmark to get actual numbers"
+- Not: "Will handle ~1000 req/s" → Better: "I'll measure under realistic load"
 
 **Document measurements:**
 ```markdown
 ### Performance Benchmarks
-- Response time: 45ms (target: < 100ms) ✓
+- Response time: 45ms (target: < 100ms)
 - Load test: 2,400 req/s sustained
 - Test setup: [environment, tools]
 ```
@@ -133,33 +133,33 @@ You: Validate docs, commit
 ### Required Actions
 
 **When starting a project or adding major components:**
-- ✓ Create/update `/docs/architecture/overview.md`
-- ✓ Document system design decisions
-- ✓ List core components and responsibilities
+- Create/update `/docs/architecture/overview.md`
+- Document system design decisions
+- List core components and responsibilities
 
 **When creating features:**
-- ✓ Create `/docs/features/FEAT-xxx.md` (use template as guide)
-- ✓ Add to `/docs/FEATURES.md` index
-- ✓ Add to `/docs/FEATURE-MAP.md` if has dependencies
-- ✓ Link to relevant research docs
-- ✓ Update `/docs/CURRENT.md` if active work
+- Create `/docs/features/FEAT-xxx.md` (use template as guide)
+- Add to `/docs/FEATURES.md` index
+- Add to `/docs/FEATURE-MAP.md` if has dependencies
+- Link to relevant research docs
+- Update `/docs/CURRENT.md` if active work
 
 **When fixing bugs:**
-- ✓ Document in FEAT-xxx.md "Known Issues" section
-- ✓ Describe fix and prevention strategy
-- ✓ Update research docs if bug revealed insights
+- Document in FEAT-xxx.md "Known Issues" section
+- Describe fix and prevention strategy
+- Update research docs if bug revealed insights
 
 **When implementing:**
-- ✓ Update "Implementation Notes" as you work
-- ✓ Document decisions made and rationale
-- ✓ Note challenges and solutions
-- ✓ Link research docs that informed decisions
+- Update "Implementation Notes" as you work
+- Document decisions made and rationale
+- Note challenges and solutions
+- Link research docs that informed decisions
 
 **After major work:**
-- ✓ Validate documentation consistency
-- ✓ Check all indexes updated
-- ✓ Verify links valid
-- ✓ Ensure dependencies bidirectional
+- Validate documentation consistency
+- Check all indexes updated
+- Verify links valid
+- Ensure dependencies bidirectional
 
 ### Naming Conventions
 

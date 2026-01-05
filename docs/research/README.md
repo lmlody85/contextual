@@ -89,13 +89,14 @@ When you discover important domain knowledge:
 ## Best Practices
 
 ### When to Create Research Docs
-✅ **Do create** when:
+
+**Do create** when:
 - You've researched a topic that affects multiple features
 - You've discovered best practices worth documenting
 - You need to explain why we chose an approach
 - You want to preserve important domain knowledge
 
-❌ **Don't create** when:
+**Don't create** when:
 - Information is specific to one feature (put in feature doc instead)
 - It's basic information easily found elsewhere
 - It's implementation details (put in code comments instead)

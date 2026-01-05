@@ -12,7 +12,7 @@ This guide establishes when and how AI agents should ask clarifying questions be
 
 **Without clarification:** AI assumes wrong approach (e.g., username/password when OAuth needed) → Complete rework ✗
 
-**With clarification:** AI asks 2-3 key questions upfront → Builds exactly what's needed ✓
+**With clarification:** AI asks 2-3 key questions upfront → Builds exactly what's needed
 
 ---
 
@@ -64,7 +64,7 @@ This guide establishes when and how AI agents should ask clarifying questions be
 
 **Action:**
 1. Ask which metrics matter (response time, throughput, memory)
-2. Measure and report actual data: ✅ "Measured: 45ms" not ❌ "Should be ~50ms"
+2. Measure and report actual data: "Measured: 45ms" not "Should be ~50ms"
 3. Document in feature docs ("Performance Benchmarks" section)
 
 ---
@@ -90,12 +90,12 @@ What [aspect] should I use?
 [Feature] can be implemented with:
 
 Approach A: [Description]
-  ✅ Pros: [list]
-  ❌ Cons: [list]
+  Pros: [list]
+  Cons: [list]
 
 Approach B: [Description]
-  ✅ Pros: [list]
-  ❌ Cons: [list]
+  Pros: [list]
+  Cons: [list]
 
 Which approach fits your needs better?
 ```
@@ -131,7 +131,7 @@ When research docs present multiple approaches:
 **When to use:** [scenarios]
 **Trade-offs:** [pros/cons]
 
-**⚠️ Decision required:** If both approaches are viable,
+**Decision required:** If both approaches are viable,
 ask the user which to use via AskUserQuestion.
 ```
 
@@ -145,14 +145,14 @@ User: "Add authentication"
 AI: Identifies 3 key decisions (auth method, session strategy, storage)
     Asks: "What authentication method?" with 4 options
 User: "OAuth with Google"
-AI: Documents decision in FEAT-001-auth.md, implements → Done right first time ✓
+AI: Documents decision in FEAT-001-auth.md, implements → Done right first time
 ```
 
 ---
 
 ## Critical Anti-Pattern to Avoid
 
-### ❌ Asking After Implementation
+### Anti-Pattern: Asking After Implementation
 
 ```
 AI: [Implements entire feature]
