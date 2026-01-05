@@ -34,53 +34,52 @@ Contextual teaches AI to **create and maintain documentation automatically**:
 
 ---
 
-## Key Features
+## How It Works
 
-### Context-Efficient Navigation
+### Self-Contained Feature Docs
 
-```
-Fix a bug: ~1,000 tokens (Quick Ref + FEAT-xxx.md)
-Add a feature: ~1,500-1,800 tokens (Quick Ref + indexes + research + template)
-Understand architecture: ~2,000 tokens (Quick Ref + architecture + FEATURE-MAP)
-```
+**Benefit:** AI loads only what it needs—no circular dependencies, no context pollution.
 
-**How?** Optimized entry points + hub-and-spoke design + self-contained feature docs.
+Each feature gets ONE document (`FEAT-xxx.md`) containing everything: what, why, how, dependencies, known issues, and decisions made.
 
-### Automated Validation (Claude Code)
+```markdown
+# FEAT-001: User Authentication
 
-Hooks detect when you complete major work and prompt for validation. A sub-agent then checks indexes, dependencies, and links automatically.
-
-**Result:** Never forget to update indexes. See [For Claude Code Users](#for-claude-code-users) for details.
-
-### AI Agent Guidance
-
-Built-in strategies for effective AI-assisted development:
-
-- **Clarify First:** AI asks questions BEFORE implementing ambiguous features
-- **Chain Prompts:** Break complex tasks into focused steps (< 1000 tokens each)
-- **Measure, Don't Guess:** Benchmark performance, document actual data
-
-See [guides/](docs/guides/) for detailed strategies.
-
-### Smart Documentation Structure
-
-```
-Feature docs (FEAT-xxx.md)
-  ↓ Links to
-Research docs (algorithms, design principles)
-  ↓ Organized by
-Topic-based indexes (Quick Find)
-  ↓ Validated by
-Automated consistency checks
+## What — Brief description
+## Why — Problem it solves
+## How — Technical approach
+## Dependencies — What it connects to
+## Known Issues — Bugs and resolutions
+## Implementation Notes — Decisions and rationale
 ```
 
-### Multi-Agent Support
+### Reusable Research Library
 
-Works out-of-the-box with:
-- **Claude Code** (with hooks, sub-agents, automation)
-- **Cursor AI** (ready to add)
-- **GitHub Copilot** (ready to add)
-- **Any AI tool** (via universal `AGENTS.md`)
+**Benefit:** Domain knowledge stays DRY—update once, referenced everywhere.
+
+```
+docs/research/
+├── oauth-best-practices.md    → Referenced by FEAT-001, FEAT-003
+├── caching-strategies.md      → Referenced by FEAT-012, FEAT-015
+└── api-design-principles.md   → Referenced by all API features
+```
+
+### Dependency Tracking
+
+**Benefit:** Understand impact before making changes—see what breaks if you modify a feature.
+
+```
+FEAT-001 (Login)
+  ↓ provides tokens to
+FEAT-002 (Session Management)
+  ↓ provides session data to
+FEAT-015 (User Profile)
+```
+
+### Works With Any AI Tool
+
+- **Claude Code** — Full automation with hooks and sub-agents
+- **Cursor, Copilot, others** — Via universal `AGENTS.md` instructions
 
 ---
 
@@ -172,193 +171,53 @@ your-project/
 
 ---
 
-## Core Concepts
+## Performance
 
-### Feature Documentation (FEAT-xxx.md)
+### Token Efficiency
 
-Each feature gets ONE self-contained document:
+AI spends more time coding, less time reading:
 
-```markdown
-# FEAT-001: User Authentication
+| Task | Contextual | Single README | Wiki |
+|------|------------|---------------|------|
+| Fix bug | ~1,000 tokens | 5000+ | 2000+ |
+| Add feature | ~1,700 tokens | 5000+ | 4000+ |
+| Understand arch | ~2,000 tokens | 5000+ | 3000+ |
 
-## What
-Brief description (2-3 sentences)
-
-## Why
-Problem it solves
-
-## How
-Technical approach + key components
-
-## Feature Dependencies
-What it depends on, what depends on it
-
-## Files Changed
-List of modified files
-
-## Known Issues & Resolutions
-Bugs, fixes, workarounds
-
-## TODO
-Remaining work or "Feature complete"
-
-## Implementation Notes
-Decisions, challenges, lessons learned
-```
-
-**Benefits:**
-- Self-contained (no circular dependencies)
-- AI loads only what it needs (< 600 tokens per feature)
-- Documents WHY, not just WHAT
-
-### Research Documentation
-
-Domain knowledge separated from features:
-
-```
-docs/research/
-├── README.md                    # Quick Find by topic
-├── oauth-best-practices.md      # Referenced by FEAT-001, FEAT-003
-├── caching-strategies.md        # Referenced by FEAT-012, FEAT-015
-└── api-design-principles.md     # Referenced by all API features
-```
-
-**Benefits:**
-- Reusable across features (DRY principle)
-- Easy to update when research evolves
-- AI loads only relevant research (on-demand)
-
-### Feature Map
-
-Visual representation of dependencies:
-
-```markdown
-## Authentication Flow
-FEAT-001 (Login)
-  ↓ provides tokens to
-FEAT-002 (Session Management)
-  ↓ provides session data to
-FEAT-015 (User Profile)
-```
-
-**Benefits:**
-- Understand change impact (changing FEAT-001 affects which features?)
-- Navigate to related features quickly
-- Identify critical dependencies
-
----
-
-## Token Efficiency Comparison
-
-| Task | This System | Single README | Wiki System |
-|------|------------|---------------|-------------|
-| Fix bug | ~1,000 tokens | 5000+ tokens | 2000+ tokens |
-| Add feature | ~1,500-1,800 tokens | 5000+ tokens | 4000+ tokens |
-| Understand arch | ~2,000 tokens | 5000+ tokens | 3000+ tokens |
-
-**Why this matters:** AI models have context limits. More efficient navigation = more room for actual code and implementation.
-
----
-
-## Scalability
-
-Tested and optimized for projects of all sizes:
+### Scalability
 
 | Project Size | Status | Notes |
 |-------------|--------|-------|
-| **1-30 features** | ✅ Perfect | Current structure is ideal |
-| **30-60 features** | ✅ Excellent | Quick Find indexes work great |
-| **60-100 features** | ✅ Good | May want subdirectories |
-| **100+ features** | ⚠️ Fair | Need hierarchical feature map |
+| **1-30 features** | ✅ Ideal | Current structure perfect |
+| **30-60 features** | ✅ Excellent | Quick Find indexes scale well |
+| **60-100 features** | ✅ Good | Consider subdirectories |
+| **100+ features** | ⚠️ Needs work | Hierarchical structure recommended |
 
-**Key insight:** System scales linearly. Individual docs don't grow with feature count.
-
----
-
-## What You Get
-
-✓ **Token efficiency:** 1,000-2,000 tokens for most tasks
-✓ **Clear navigation:** Unambiguous entry points
-✓ **Context isolation:** Only read what you need
-✓ **Automated validation:** Catches errors proactively (Claude Code)
-✓ **Multi-agent support:** Works with Claude, Cursor, Copilot, and more
+System scales linearly—individual docs don't grow with feature count.
 
 ---
 
 ## For Claude Code Users
 
-This system includes **Claude Code-specific automation**:
+Full automation via hooks and sub-agents:
 
-### Automated Validation
+- **Auto-validation** — Hooks detect feature completion, prompt to validate, sub-agent checks everything
+- **Progress tracking** — TodoWrite integration with validation as final step
+- **Prompt chaining** — Break complex work into focused steps ([guide](docs/guides/prompt-chaining.md))
+- **Clarification strategy** — AI asks before implementing ([guide](docs/guides/clarification-strategy.md))
 
-```
-After creating a feature:
-  ↓
-Hook detects major work
-  ↓
-AI prompts: "Validate docs?"
-  ↓
-You confirm
-  ↓
-Sub-agent validates everything
-```
-
-### Smart Features
-
-- **PostToolUse hooks** → Auto-detect feature completion
-- **Sub-agents** → Validate documentation consistency
-- **TodoWrite integration** → Track progress with validation as final step
-
-**See:** [CLAUDE.md](CLAUDE.md) for Claude-specific features.
-
-### Advanced Techniques
-
-**Prompt Chaining:**
-- Break complex features into focused steps
-- Load < 1000 tokens per step
-- Maintain context efficiently
-- **Guide:** [docs/guides/prompt-chaining.md](docs/guides/prompt-chaining.md)
-
-**Systematic Clarification:**
-- Ask questions before implementing ambiguous features
-- Present options with trade-offs
-- Document decisions in feature docs
-- **Guide:** [docs/guides/clarification-strategy.md](docs/guides/clarification-strategy.md)
-
-**Result:** Build exactly what users want, first time.
+**See:** [CLAUDE.md](CLAUDE.md) for setup details.
 
 ---
 
 ## For Other AI Tools
 
-### Universal Support
+All AI tools work via `AGENTS.md` — the universal instruction file.
 
-All AI tools can use this system via `AGENTS.md`:
+To add tool-specific features, copy the multi-agent template:
+- **Cursor:** `.cursorrules`
+- **Copilot:** `.github/copilot-instructions.md`
 
-```
-Your AI tool reads AGENTS.md
-  ↓
-Follows documentation structure
-  ↓
-Uses manual validation checklist
-  ↓
-Full compatibility ✓
-```
-
-### Add Tool-Specific Optimizations
-
-```bash
-# Example: Add Cursor support
-cp docs/guides/multi-agent-support.md .cursorrules
-# Customize for Cursor-specific features
-
-# Example: Add Copilot support
-mkdir -p .github
-cp docs/guides/multi-agent-support.md .github/copilot-instructions.md
-# Customize for Copilot-specific features
-```
-
-**See:** [docs/guides/multi-agent-support.md](docs/guides/multi-agent-support.md) for details.
+**See:** [docs/guides/multi-agent-support.md](docs/guides/multi-agent-support.md) for setup.
 
 ---
 
