@@ -34,31 +34,6 @@ Contextual provides **interconnected documentation** that captures product and e
 
 ---
 
-## Core Principles
-
-This system is built on two fundamental rules for AI agents:
-
-### 1. Ground Truth Over Assumptions
-
-**For complex tasks, clarify before coding:**
-- Research codebase first
-- Ask targeted questions
-- Confirm understanding
-- Document the plan
-- Then execute autonomously
-
-**Result:** Build what users actually want, first time.
-
-### 2. Measure, Don't Guess
-
-**Never assume numerical values - benchmark instead:**
-- ❌ "This should take ~100ms"
-- ✅ "Let me benchmark to get actual numbers"
-
-**Result:** Data-driven decisions, not assumptions.
-
----
-
 ## Key Features
 
 ### Context-Efficient Navigation
@@ -73,21 +48,36 @@ Understand architecture: ~1,600 tokens (Quick Ref + architecture + FEATURE-MAP)
 
 ### Automated Validation (Claude Code)
 
-```
-You: Create new feature
-  ↓
-AI: Creates FEAT-023-payment.md, updates indexes
-  ↓
-Hook detects: "Major feature work complete"
-  ↓
-AI asks: "Would you like me to validate docs?"
-  ↓
-You: "yes"
-  ↓
-Validator reports: ✓ All checks passed
-```
+**How it works:**
+1. **PostToolUse Hook** monitors file operations and detects major feature work
+2. When complete, AI automatically prompts: "Would you like me to validate docs?"
+3. **Validator Sub-Agent** runs comprehensive checks:
+   - All features indexed in FEATURES.md
+   - Dependencies are bidirectional in FEATURE-MAP.md
+   - Research links valid
+   - No orphaned files
 
-**No more forgotten index updates or broken dependency links.**
+**Result:** Never forget to update indexes or maintain consistency. The system reminds you proactively.
+
+### AI Agent Guidance
+
+Built-in strategies help AI agents work more effectively:
+
+**Prompt Chaining:**
+- Break complex features into focused steps (research → document → implement → test → validate)
+- Each step loads < 1000 tokens
+- Maintains context efficiently across the chain
+
+**Systematic Clarification (AskUserQuestion):**
+- AI asks clarifying questions BEFORE implementing ambiguous features
+- Presents options with trade-offs for architectural decisions
+- Documents decisions in feature files
+- **Result:** Build what users actually want, first time
+
+**Measure, Don't Guess:**
+- AI benchmarks performance instead of estimating
+- Documents actual measurements in feature files
+- **Result:** Data-driven decisions, not assumptions
 
 ### Smart Documentation Structure
 
@@ -99,8 +89,6 @@ Research docs (algorithms, design principles)
 Topic-based indexes (Quick Find)
   ↓ Validated by
 Automated consistency checks
-  ↓ Optimized via
-Prompt chaining & systematic clarification
 ```
 
 ### Multi-Agent Support
@@ -292,8 +280,6 @@ FEAT-015 (User Profile)
 
 **Why this matters:** AI models have context limits. More efficient navigation = more room for actual code and implementation.
 
-**After optimization:** Entry points (CLAUDE.md, AGENTS.md) are now 50-70% smaller, making workflows even more efficient.
-
 ---
 
 ## Scalability
@@ -311,15 +297,13 @@ Tested and optimized for projects of all sizes:
 
 ---
 
-## AI Agent Efficiency: 9/10
+## What You Get
 
-**Token efficiency:** 800-1800 tokens for most tasks ✓
-**Clear navigation:** Unambiguous entry points ✓
-**Context isolation:** Only read what you need ✓
-**Automated validation:** Catches errors proactively ✓
-**Multi-agent support:** Works with any AI tool ✓
-
-**See:** [docs/guides/ai-agent-efficiency.md](docs/guides/ai-agent-efficiency.md) for full analysis.
+✓ **Token efficiency:** 800-1800 tokens for most tasks
+✓ **Clear navigation:** Unambiguous entry points
+✓ **Context isolation:** Only read what you need
+✓ **Automated validation:** Catches errors proactively (Claude Code)
+✓ **Multi-agent support:** Works with Claude, Cursor, Copilot, and more
 
 ---
 
@@ -433,28 +417,6 @@ This is a template/framework project. Ways to contribute:
 
 ---
 
-## Examples
-
-### Real-World Adoption
-
-*Want to see this system in action? Add your project here via PR!*
-
-- **Your Project** - [github.com/your/project] - Brief description
-
----
-
-## Roadmap
-
-Future enhancements:
-
-- [ ] GitHub Actions workflow for automated validation
-- [ ] VS Code extension for easier navigation
-- [ ] CLI tool for creating features from template
-- [ ] Metrics dashboard (documentation coverage, link health)
-- [ ] More AI tool examples (Cursor, Copilot, Aider)
-
----
-
 ## FAQ
 
 ### Q: Why not just use a wiki or Notion?
@@ -482,14 +444,6 @@ Future enhancements:
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-## Acknowledgments
-
-- Inspired by the challenges of AI-assisted development
-- Built with feedback from Claude Code, Cursor, and AI coding communities
-- Thanks to everyone testing and providing feedback
 
 ---
 
