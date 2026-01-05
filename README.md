@@ -80,7 +80,9 @@ FEAT-015 (User Profile)
 
 ## Quick Start
 
-### 1. Copy This Template
+### Option A: Repository Template
+
+Best for new projects. Get the full structure with all files.
 
 ```bash
 # Clone this repository
@@ -131,6 +133,24 @@ The AI asks before making big decisions:
 
 Your answers get documented in feature files for future reference.
 
+### Option B: Claude Code Skill
+
+Best for existing projects. Scaffold the structure on-demand.
+
+```bash
+# Copy skill to your Claude Code skills directory
+cp -r .claude/skills/contextual ~/.claude/skills/
+```
+
+Then in any project:
+
+```
+/contextual init      # Scaffold documentation structure
+/contextual validate  # Check docs for issues
+```
+
+The skill provides the same framework without copying template files manually.
+
 ---
 
 ## Documentation Structure
@@ -180,7 +200,7 @@ Works with any AI coding assistant:
 
 | Tool | Integration | Automation Level |
 |------|-------------|------------------|
-| **Claude Code** | Native via [CLAUDE.md](CLAUDE.md) | Full (hooks, sub-agents, auto-validation) |
+| **Claude Code** | Native via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/) | Full (hooks, skill commands, auto-validation) |
 | **Cursor** | Via `.cursorrules` | Manual validation |
 | **Copilot** | Via `.github/copilot-instructions.md` | Manual validation |
 | **Others** | Via [AGENTS.md](AGENTS.md) | Manual validation |
