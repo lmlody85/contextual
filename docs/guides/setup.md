@@ -140,12 +140,19 @@ The application will be available at: `http://localhost:XXXX`
 
 ### Adding a New Feature
 
-1. Read the [AGENTS.md](../../AGENTS.md) documentation guide
-2. Create a feature doc: `docs/features/FEAT-###-name.md`
-3. Update `docs/CURRENT.md` with your task
-4. Implement the feature
-5. Write tests
-6. Update documentation
+Just describe what you want to your AI assistant:
+
+```
+"Add user authentication with OAuth"
+```
+
+The AI will:
+1. Ask clarifying questions (which providers? session handling?)
+2. Create `docs/features/FEAT-xxx.md` with the approach
+3. Implement the feature
+4. Update indexes and validate docs
+
+See [AGENTS.md](../../AGENTS.md) for the full workflow.
 
 ### Running a Single Test
 

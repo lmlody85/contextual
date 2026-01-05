@@ -51,12 +51,10 @@ Example:
 
 | Task | Action |
 |------|--------|
-| Start feature work | Create TodoWrite list with "Validate docs" as final step |
-| Fix bug | Find FEAT → Fix → Update "Known Issues" → Auto-validation prompt |
-| Add feature | Follow AGENTS.md workflow → Auto-validation prompt |
+| Start new project | Describe to AI → AI asks questions → AI creates architecture + first feature |
+| Add feature | Describe to AI → AI creates FEAT-xxx.md → AI implements → Auto-validation |
+| Fix bug | Describe to AI → AI finds FEAT → AI fixes → AI updates "Known Issues" |
 | Validate docs | Say "validate docs" (or wait for automatic prompt) |
-| Find research | Check research/README.md Quick Find or grep |
-| See current work | Read CURRENT.md (~200 tokens) |
 
 ---
 
@@ -80,4 +78,4 @@ Example:
 
 ---
 
-**Remember:** Claude Code's hooks and sub-agents automate validation and reduce cognitive load. Trust the automation, but stay in control - you approve all actions.
+**Remember:** You create the docs, Claude Code automates the validation. User describes, you build and document.

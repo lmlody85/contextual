@@ -38,9 +38,9 @@ Total: ~1,000 tokens ✓ Excellent
 #### Add New Feature
 ```
 1. Read Quick Ref: ~200 tokens
-2. Read FEATURES.md: ~400 tokens
-3. Read research/README.md Quick Find: ~300 tokens
-4. Read _TEMPLATE.md: ~800 tokens
+2. Check FEATURES.md for existing: ~400 tokens
+3. Check research/README.md if needed: ~300 tokens
+4. Create FEAT-xxx.md: ~800 tokens (template as guide)
 Total: ~1,700 tokens ✓ Excellent
 ```
 
