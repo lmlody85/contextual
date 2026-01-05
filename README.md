@@ -141,8 +141,7 @@ your-project/
 ├── docs/
 │   ├── features/          # Self-contained feature docs (FEAT-xxx.md)
 │   ├── research/          # Reusable domain knowledge
-│   ├── architecture/      # System design
-│   └── guides/            # Setup, workflows, best practices
+│   └── architecture/      # System design
 └── .claude/               # Claude Code automation (optional)
 ```
 
@@ -185,8 +184,6 @@ Works with any AI coding assistant:
 | **Cursor** | Via `.cursorrules` | Manual validation |
 | **Copilot** | Via `.github/copilot-instructions.md` | Manual validation |
 | **Others** | Via [AGENTS.md](AGENTS.md) | Manual validation |
-
-**See:** [Multi-agent setup guide](docs/guides/multi-agent-support.md)
 
 ---
 

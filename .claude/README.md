@@ -38,8 +38,6 @@ Would you like me to validate the documentation consistency?
 Just say "validate docs" or "yes" to run validation.
 ```
 
-**See also:** [docs/guides/docs-validation.md](../docs/guides/docs-validation.md) for manual validation procedures.
-
 ---
 
 ## Hooks
@@ -66,10 +64,10 @@ Would you like me to validate docs?
 This gives you control while ensuring validation isn't forgotten.
 
 **Why this approach:**
-- ✅ Automatic detection (no need to remember)
-- ✅ User stays in control (ask, don't auto-run)
-- ✅ Only triggers for major work (not every edit)
-- ✅ Non-intrusive (easy to decline)
+- Automatic detection (no need to remember)
+- User stays in control (ask, don't auto-run)
+- Only triggers for major work (not every edit)
+- Non-intrusive (easy to decline)
 
 ## Adding More Agents
 

@@ -58,24 +58,4 @@ Example:
 
 ---
 
-## Advanced Techniques
-
-**For complex tasks, use these strategies:**
-
-- **Prompt Chaining:** Break tasks into focused steps - [docs/guides/prompt-chaining.md](docs/guides/prompt-chaining.md)
-- **Clarification Strategy:** Ask questions before implementing - [docs/guides/clarification-strategy.md](docs/guides/clarification-strategy.md)
-- **Automation Details:** How validation works - [docs/guides/automation-overview.md](docs/guides/automation-overview.md)
-
----
-
-## Complete Documentation
-
-| Resource | Purpose |
-|----------|---------|
-| [AGENTS.md](AGENTS.md) | Complete documentation system (start here) |
-| [.claude/README.md](.claude/README.md) | Claude Code configuration |
-| [docs/guides/](docs/guides/) | Specialized techniques & strategies |
-
----
-
 **Remember:** You create the docs, Claude Code automates the validation. User describes, you build and document.

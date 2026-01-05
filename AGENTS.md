@@ -239,28 +239,17 @@ Before implementing domain features, making design decisions, debugging domain i
 
 ## Documentation Validation
 
-### Why Validate
-
 Catches missing indexes, broken links, and invalid dependencies.
-
-### How to Validate
 
 **For Claude Code:** Say "validate docs" or wait for automatic prompt
 
-**For other AI agents:** See checklist in `/docs/guides/docs-validation.md`
+**For other tools, check manually:**
 
----
-
-## Tool-Specific Features
-
-- **Claude Code:** [CLAUDE.md](CLAUDE.md) - Hooks, sub-agents, validation
-- **Cursor:** [.cursorrules](.cursorrules) (create from multi-agent guide)
-- **Copilot:** [.github/copilot-instructions.md](.github/copilot-instructions.md) (create from multi-agent guide)
-
-**Advanced techniques:**
-- [Prompt Chaining](docs/guides/prompt-chaining.md) - Break tasks into focused steps
-- [Clarification Strategy](docs/guides/clarification-strategy.md) - Ask before implementing
-- [Multi-Agent Support](docs/guides/multi-agent-support.md) - Add other AI tools
+- [ ] Feature is listed in `/docs/FEATURES.md`
+- [ ] Feature is in `/docs/FEATURE-MAP.md` if it has dependencies
+- [ ] All dependencies are bidirectional (A depends on B → B lists A as dependent)
+- [ ] All research doc links are valid
+- [ ] All files in "Files Changed" section exist
 
 ---
 
