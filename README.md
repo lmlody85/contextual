@@ -147,10 +147,17 @@ your-project/
 │   ├── features/          # Self-contained feature docs (FEAT-xxx.md)
 │   ├── research/          # Reusable domain knowledge
 │   └── architecture/      # System design
+├── prompts/               # Reusable prompts for AI agents
 └── .claude/               # Claude Code automation (optional)
 ```
 
 Full structure details in [AGENTS.md](AGENTS.md).
+
+### Prompts
+
+| Prompt | Purpose |
+|--------|---------|
+| [implement-contextual.md](prompts/implement-contextual.md) | Implement framework on existing repo with before/after understanding test |
 
 ---
 
