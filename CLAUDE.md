@@ -1,61 +1,24 @@
 # Claude Code Instructions
 
-> **Supplement to [AGENTS.md](AGENTS.md)** - Claude Code-specific features only
+> **Supplement to [AGENTS.md](AGENTS.md)** — Claude Code automation only
 
-This file adds Claude Code automation to the core system in AGENTS.md:
-- Automated validation (hooks + sub-agents)
-- TodoWrite integration
-- Smart prompts after feature work
+## Automated Validation
 
-**Note:** AGENTS.md contains all core instructions. This file is additive.
+- PostToolUse hook detects feature work
+- Prompts: "Would you like me to validate docs?"
+- Say `validate docs` to run manually
 
----
+**Config:** [.claude/README.md](.claude/README.md)
 
-## Claude Code Features
+## TodoWrite Integration
 
-### Automated Validation
+Include "Validate documentation" as final step in todo lists.
 
-**How it works:**
-- PostToolUse hook detects feature creation/completion
-- AI agent prompts: "Would you like me to validate docs?"
-- You say "validate docs" or "yes"
-- Validator sub-agent checks consistency and reports issues
+## Smart Hooks
 
-**Manual trigger:** Say `validate docs`, `check documentation`, or `lint docs`
+**post-feature-reminder** detects:
+- New FEAT files created
+- Features marked complete
+- Major doc updates
 
-**See:** [.claude/README.md](.claude/README.md) for configuration
-
-### TodoWrite Integration
-
-Always include "Validate documentation" as final todo step:
-
-```markdown
-Example:
-- [ ] Create FEAT-xxx.md
-- [ ] Implement feature
-- [ ] Write tests
-- [ ] Update indexes
-- [ ] Validate documentation ← Always include!
-```
-
-### Smart Hooks
-
-**post-feature-reminder** (`.claude/hooks/post-feature-reminder.md`):
-- Detects new FEAT files, completed features, or major doc updates
-- Prompts AI agent to offer validation
-- Non-intrusive (ask, don't auto-run)
-
----
-
-## Quick Reference
-
-| Task | Action |
-|------|--------|
-| Start new project | Describe to AI → AI asks questions → AI creates architecture + first feature |
-| Add feature | Describe to AI → AI creates FEAT-xxx.md → AI implements → Auto-validation |
-| Fix bug | Describe to AI → AI finds FEAT → AI fixes → AI updates "Known Issues" |
-| Validate docs | Say "validate docs" (or wait for automatic prompt) |
-
----
-
-**Remember:** You create the docs, Claude Code automates the validation. User describes, you build and document.
+Then prompts validation (ask, don't auto-run).
