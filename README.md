@@ -7,7 +7,7 @@ Structured docs that stay current—so AI spends time coding, not re-reading you
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**+127% context confidence.** 5 doc files vs. 50+ source files. Tested on a real multi-agent project.
+**14/35 → 35/35 context understanding.** Tested on a real codebase. [See results](#tested-results).
 
 ---
 
@@ -164,19 +164,25 @@ Full structure details in [AGENTS.md](AGENTS.md).
 
 ## Tested Results
 
-Real-world implementation on a multi-agent AI project (7 features, ~50 source files):
+Real-world test on a Swift/Metal audio visualizer (7 features, ~50 source files):
 
-| Metric | Before | After | Change |
-|--------|--------|-------|--------|
-| **Context confidence** | 15/35 | 34/35 | +127% |
-| **Context completeness** | 15/35 | 34/35 | +127% |
+| Question | Before | After | Δ |
+|----------|--------|-------|---|
+| Architecture | 2/5 | 5/5 | +3 |
+| Entry points | 2/5 | 5/5 | +3 |
+| Dependencies | 1/5 | 5/5 | +4 |
+| Tech stack | 3/5 | 5/5 | +2 |
+| Design decisions | 2/5 | 5/5 | +3 |
+| Bug fix scenario | 2/5 | 5/5 | +3 |
+| New feature scenario | 2/5 | 5/5 | +3 |
+| **Total** | **14/35** | **35/35** | **+21** |
 
-**Biggest context gains:**
-- Architecture understanding: 2/5 → 5/5
-- Dependency mapping: 1/5 → 5/5
-- Bug fix confidence: 2/5 → 5/5
+**Where the gains came from:**
+- **Dependencies (+4):** FEATURE-MAP.md makes relationships explicit
+- **Design decisions (+3):** "Key Decisions" captures rationale, not just what
+- **Bug fix (+3):** "Files Changed" eliminates grep-based archaeology
 
-Test methodology: [prompts/implement-contextual.md](prompts/implement-contextual.md)
+Test methodology: [prompts/test-understanding.md](prompts/test-understanding.md)
 
 ---
 
