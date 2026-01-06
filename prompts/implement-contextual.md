@@ -100,6 +100,15 @@ When the user describes what they want, you:
 
 ## Common Workflows
 
+### Starting a New Project
+`Clarify → Document Architecture → Document First Feature → Implement`
+
+1. **Ask clarifying questions** — Scope, tech stack, requirements
+2. **Create architecture doc** — `docs/architecture/overview.md`
+3. **Create first feature doc** — `docs/features/FEAT-001-xxx.md`
+4. **Update indexes** — `FEATURES.md`, `FEATURE-MAP.md`
+5. **Implement** — Follow your documentation
+
 ### Adding a Feature
 `Clarify → Research → Document → Implement → Test → Update Indexes → Validate`
 
@@ -127,6 +136,14 @@ When the user describes what they want, you:
 3. **Resume work** — Continue from where you left off
 4. **Update CURRENT.md** — Before ending session, capture state
 
+### Conducting Research
+`Research → Document → Index`
+
+1. **Do the research** — Gather information, analyze findings
+2. **Create research doc** — `docs/research/[topic-name].md`
+3. **Add to index** — Update `docs/research/README.md`
+4. **Link from features** — If relevant, add to FEAT-xxx.md Research References
+
 ---
 
 ## Key Files
@@ -149,14 +166,36 @@ When the user describes what they want, you:
 
 ---
 
+## Documentation Validation
+
+**How to run:** Claude Code users say `validate docs`. Other tools: use checklist below.
+
+- [ ] Feature listed in `/docs/FEATURES.md`
+- [ ] Dependencies in `/docs/FEATURE-MAP.md` (bidirectional)
+- [ ] All links valid
+- [ ] All files in "Files Changed" exist
+
+---
+
 ## Critical Anti-Patterns
 
-| Don't | Do Instead |
-|-------|------------|
-| Document after implementing | Create FEAT-xxx.md first |
-| Skip dependency updates | Update FEATURE-MAP.md immediately |
-| Let FEAT-xxx.md exceed ~300 lines | Suggest splitting to user |
-| Forget CURRENT.md | Update before ending work |
+| Don't | Why | Do Instead |
+|-------|-----|------------|
+| Document after implementing | Decisions get lost, rationale forgotten | Create FEAT-xxx.md first |
+| Skip dependency updates | Breaks impact analysis | Update FEATURE-MAP.md immediately |
+| Let FEAT-xxx.md exceed ~300 lines | Loses "self-contained" benefit, too much context | Suggest splitting to user |
+| Forget CURRENT.md | Next session loses context | Update before ending work |
+
+### When to Suggest Splitting a Feature
+
+If a FEAT-xxx.md is growing large (300+ lines) or covers multiple distinct concerns, suggest to the user:
+- Split into FEAT-xxx-a.md and FEAT-xxx-b.md
+- Update dependencies between the new features
+- Update indexes
+
+---
+
+**Remember:** You create and maintain documentation. The user describes what they want—you handle the paperwork.
 ```
 
 ### docs/CURRENT.md
