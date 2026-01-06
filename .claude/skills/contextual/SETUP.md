@@ -2,9 +2,7 @@
 
 Scaffold the documentation structure in a new project.
 
-## Directory Structure
-
-Create these directories:
+## Quick Setup
 
 ```bash
 mkdir -p docs/features docs/research docs/architecture
@@ -12,46 +10,22 @@ mkdir -p docs/features docs/research docs/architecture
 
 ## Required Files
 
-### 1. AGENTS.md (root)
+For full file templates, see [prompts/implement-contextual.md](../../../prompts/implement-contextual.md).
 
-Main AI instructions file. Customize the sections for your project:
+Create these files:
 
-```markdown
-# Project Name
+| File | Purpose |
+|------|---------|
+| `AGENTS.md` | Main AI instructions |
+| `docs/CURRENT.md` | Active work tracking |
+| `docs/FEATURES.md` | Feature index |
+| `docs/FEATURE-MAP.md` | Dependency graph |
+| `docs/research/README.md` | Domain knowledge index |
+| `docs/architecture/overview.md` | System design |
 
-## Quick Start
+## Minimal Starter Templates
 
-1. Read `docs/CURRENT.md` for active work
-2. Check `docs/features/FEAT-xxx.md` for feature context
-3. Update docs as you implement
-
-## Documentation Map
-
-- `docs/CURRENT.md` — Active work
-- `docs/FEATURES.md` — Feature index
-- `docs/FEATURE-MAP.md` — Dependencies
-- `docs/features/` — Feature documentation
-- `docs/research/` — Domain knowledge
-- `docs/architecture/` — System design
-
-## Conventions
-
-[Add project-specific conventions here]
-```
-
-### 2. CLAUDE.md (root, optional)
-
-Only needed if using Claude Code automation:
-
-```markdown
-# Claude Code Instructions
-
-> Supplement to [AGENTS.md](AGENTS.md)
-
-[Claude-specific automation instructions]
-```
-
-### 3. docs/CURRENT.md
+### docs/CURRENT.md
 
 ```markdown
 # Current Work
@@ -69,7 +43,7 @@ Only needed if using Claude Code automation:
 *Context, constraints, reminders*
 ```
 
-### 4. docs/FEATURES.md
+### docs/FEATURES.md
 
 ```markdown
 # Features
@@ -88,7 +62,7 @@ Only needed if using Claude Code automation:
 **Dependencies:** See [FEATURE-MAP.md](FEATURE-MAP.md)
 ```
 
-### 5. docs/FEATURE-MAP.md
+### docs/FEATURE-MAP.md
 
 ```markdown
 # Feature Map
@@ -103,59 +77,19 @@ Only needed if using Claude Code automation:
 *Standalone features with no dependencies*
 ```
 
-### 6. docs/features/_TEMPLATE.md
-
-```markdown
-# FEAT-###: Feature Name
-
-## What
-*Brief description*
-
-## Why
-*Problem solved or value provided*
-
-## How
-*Technical approach*
-
----
-
-## Research References
-*Links to research docs, or "None"*
-
-## Feature Dependencies
-**Depends on:** *FEAT-xxx links, or "None"*
-**Dependents:** *Features that use this, or "None"*
-
----
-
-## Files Changed
-- `path/to/file` - What changed
-
-## Known Issues
-*Current issues, or "None"*
-
-## TODO
-*Remaining work, or "Feature complete"*
-
----
-
-## Implementation Notes
-*Decisions, challenges, lessons learned*
-```
-
-### 7. docs/research/README.md
+### docs/research/README.md
 
 ```markdown
 # Research & Domain Knowledge
 
 ## Quick Find
-**[Topic]:** *No research yet*
+*Add categories relevant to this project*
 
 ## All Research (Alphabetical)
 *No research documents yet*
 ```
 
-### 8. docs/architecture/overview.md
+### docs/architecture/overview.md
 
 ```markdown
 # Architecture Overview
@@ -178,7 +112,7 @@ Only needed if using Claude Code automation:
 
 After scaffolding:
 
-1. Customize AGENTS.md with project-specific conventions
+1. Copy AGENTS.md template from [implement-contextual.md](../../../prompts/implement-contextual.md)
 2. Fill in architecture/overview.md with system description
 3. Add relevant categories to research/README.md
 4. Create first feature doc when work begins

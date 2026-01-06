@@ -12,7 +12,6 @@ Check documentation for completeness and consistency.
 - [ ] `docs/FEATURES.md` exists
 - [ ] `docs/FEATURE-MAP.md` exists
 - [ ] `docs/features/` directory exists
-- [ ] `docs/features/_TEMPLATE.md` exists
 - [ ] `docs/research/README.md` exists
 - [ ] `docs/architecture/overview.md` exists
 
@@ -44,7 +43,7 @@ For each `FEAT-xxx.md` file:
 
 ```bash
 # 1. Check structure exists
-for file in AGENTS.md docs/CURRENT.md docs/FEATURES.md docs/FEATURE-MAP.md docs/features/_TEMPLATE.md docs/research/README.md docs/architecture/overview.md; do
+for file in AGENTS.md docs/CURRENT.md docs/FEATURES.md docs/FEATURE-MAP.md docs/research/README.md docs/architecture/overview.md; do
   if [ -f "$file" ]; then
     echo "EXISTS: $file"
   else
