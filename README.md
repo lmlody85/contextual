@@ -177,10 +177,7 @@ Real-world test on a Swift/Metal audio visualizer (7 features, ~50 source files)
 | New feature scenario | 2/5 | 5/5 | +3 |
 | **Total** | **14/35** | **35/35** | **+21** |
 
-**Where the gains came from:**
-- **Dependencies (+4):** FEATURE-MAP.md makes relationships explicit
-- **Design decisions (+3):** "Key Decisions" captures rationale, not just what
-- **Bug fix (+3):** "Files Changed" eliminates grep-based archaeology
+**Biggest improvement:** Dependencies (+4) — from guessing to explicit relationships.
 
 Test methodology: [prompts/test-understanding.md](prompts/test-understanding.md)
 
