@@ -214,8 +214,7 @@ System scales linearly—individual docs don't grow with feature count.
 
 Works with any AI coding assistant that reads markdown files.
 
-- **Claude Code:** Full automation via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/)
-- **Cursor, Copilot, others:** Via [AGENTS.md](AGENTS.md)
+**Claude Code** gets full automation via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/).
 
 ---
 
