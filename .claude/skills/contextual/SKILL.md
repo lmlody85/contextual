@@ -37,7 +37,7 @@ When user asks to set up Contextual, scaffold docs, or create documentation stru
 
 1. Read [SETUP.md](SETUP.md) for the scaffolding procedure
 2. Create the directory structure
-3. Copy template files
+3. Create initial files (AGENTS.md, CURRENT.md, FEATURES.md, etc.)
 4. Guide user through customization
 
 ### Validate Documentation

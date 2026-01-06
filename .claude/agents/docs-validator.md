@@ -107,7 +107,6 @@ Provide results in this format:
 - ✓ All research docs are indexed
 - ✓ All internal links are valid
 - ✓ Feature naming follows conventions
-- ✓ All templates are present
 ```
 
 ## Instructions
