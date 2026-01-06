@@ -125,8 +125,10 @@ When the user describes what they want, you:
 
 1. **Find the feature doc** — Which FEAT-xxx.md owns this code?
 2. **Check Known Issues** — Has this been seen before?
-3. **Fix the bug** — Implement the solution
-4. **Update Known Issues** — Document what happened and the fix
+3. **Investigate root cause** — Check research docs for domain context
+4. **Fix the bug** — Implement the solution
+5. **Update Known Issues** — Document what happened and the fix
+6. **Update research docs** — If bug revealed reusable insights
 
 ### Continuing Previous Work
 `Read Context → Resume → Update`
@@ -146,13 +148,18 @@ When the user describes what they want, you:
 
 ---
 
-## Key Files
+## Documentation System
+
+**Core principle:** Self-contained docs with minimal context loading.
+
+### Key Files
 
 | File | Purpose | When to Read |
 |------|---------|--------------|
 | `/docs/CURRENT.md` | Active work, blockers | If continuing work |
 | `/docs/FEATURES.md` | Feature index | Finding features |
 | `/docs/FEATURE-MAP.md` | Feature relationships | Understanding dependencies |
+| `/docs/research/README.md` | Domain knowledge index | Before implementing |
 | `/docs/features/FEAT-xxx.md` | Individual feature docs | Working on feature |
 | `/docs/architecture/overview.md` | System design | Understanding architecture |
 
@@ -160,9 +167,35 @@ When the user describes what they want, you:
 
 ## Naming Conventions
 
+**Feature IDs:**
 - `FEAT-###` - User-facing features
 - `API-###` - API endpoints or integrations
 - `INFRA-###` - Infrastructure or tooling
+
+**File naming:**
+- Files: `kebab-case.ts`
+- Classes: `PascalCase`
+- Functions: `camelCase`
+
+---
+
+## Research & Domain Knowledge
+
+**Location:** `/docs/research/`
+
+**Common categories:** User Research, Design, Domain, Technical, Market
+
+### Where to Put Knowledge
+
+**In Feature Docs (Implementation Notes):**
+- Decisions specific to THIS feature only
+- Why Option A was chosen over B for this case
+
+**In Research Docs:**
+- Knowledge that applies to MULTIPLE features
+- General principles, patterns, or best practices
+
+**Rule:** If you'd copy-paste the same info into multiple features, it belongs in research.
 
 ---
 
@@ -237,7 +270,7 @@ If a FEAT-xxx.md is growing large (300+ lines) or covers multiple distinct conce
 
 ### docs/FEATURE-MAP.md
 
-```markdown
+````markdown
 # Feature Map
 
 ## Relationships
@@ -258,7 +291,7 @@ FEAT-002 (Name)
 ## Isolated Features
 
 *Standalone features with no dependencies*
-```
+````
 
 ### Feature Doc Format (FEAT-xxx.md)
 
