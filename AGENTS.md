@@ -141,6 +141,8 @@ Each feature has ONE self-contained document: `/docs/features/FEAT-xxx.md`
 
 **Location:** `/docs/research/`
 
+**Common categories:** User Research, Design, Domain, Technical, Market
+
 ### Finding Research
 
 **Quick Find:** Check `/docs/research/README.md` "Quick Find by Topic" section
