@@ -1,8 +1,8 @@
 # Contextual
 
-> A context management framework for AI agents
+> An AI-native documentation framework
 
-Structured documentation that stays current—so AI spends time coding, not re-reading your codebase.
+Structured docs that stay current—so AI spends time coding, not re-reading your codebase.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
