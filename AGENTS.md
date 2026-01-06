@@ -91,40 +91,7 @@ The user describes intent. You handle the documentation.
 
 ---
 
-## Documentation Rules
-
-### Required Actions
-
-**When starting a project or adding major components:**
-- Create/update `/docs/architecture/overview.md`
-- Document system design decisions
-- List core components and responsibilities
-
-**When creating features:**
-- Create `/docs/features/FEAT-xxx.md` (see format below)
-- Add to `/docs/FEATURES.md` index
-- Add to `/docs/FEATURE-MAP.md` if has dependencies
-- Link to relevant research docs
-- Update `/docs/CURRENT.md` if active work
-
-**When fixing bugs:**
-- Document in FEAT-xxx.md "Known Issues" section
-- Describe fix and prevention strategy
-- Update research docs if bug revealed insights
-
-**When implementing:**
-- Update "Implementation Notes" as you work
-- Document decisions made and rationale
-- Note challenges and solutions
-- Link research docs that informed decisions
-
-**After major work:**
-- Validate documentation consistency
-- Check all indexes updated
-- Verify links valid
-- Ensure dependencies bidirectional
-
-### Naming Conventions
+## Naming Conventions
 
 **Feature IDs:**
 - `FEAT-###` - User-facing features
@@ -214,19 +181,6 @@ If a FEAT-xxx.md is growing large (300+ lines) or covers multiple distinct conce
 - Split into FEAT-xxx-a.md and FEAT-xxx-b.md
 - Update dependencies between the new features
 - Update indexes
-
----
-
-## Quick Reference
-
-| I need to... | Go to |
-|-------------|-------|
-| Start new project | [Starting a New Project](#starting-a-new-project) |
-| Add a feature | [Adding a Feature](#adding-a-feature) |
-| Fix a bug | [Fixing a Bug](#fixing-a-bug) |
-| Continue previous work | [Continuing Previous Work](#continuing-previous-work) |
-| Understand system | Read `architecture/overview.md` → `FEATURE-MAP.md` |
-| Find a feature | Check `FEATURES.md` index |
 
 ---
 
