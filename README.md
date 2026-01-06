@@ -132,14 +132,13 @@ Then in your project, ask: "Set up Contextual docs" or "Validate documentation"
 
 ### Option C: Implementation Prompt
 
-Best for existing projects with any AI tool. Includes before/after understanding test.
+Best for existing projects with any AI tool.
 
 1. Open [prompts/implement-contextual.md](prompts/implement-contextual.md) and copy its contents
 2. Paste into AI session in your target repo
-3. AI runs understanding test, implements framework, runs test again
-4. Compare scores to measure effectiveness
+3. AI implements the framework
 
-See [tested results](#tested-results) for real-world improvement metrics.
+**Optional:** Use [prompts/test-understanding.md](prompts/test-understanding.md) before and after to measure improvement. See [tested results](#tested-results) for real-world metrics.
 
 ---
 
