@@ -87,7 +87,49 @@ When the user describes what they want, you:
 
 ---
 
-## Documentation System
+## Core Principles
+
+| Principle | Action |
+|-----------|--------|
+| **Ask before assuming** | Clarify ambiguous requirements |
+| **Document before coding** | Create FEAT-xxx.md first, then implement |
+| **Update as you go** | Keep "Implementation Notes" current during work |
+| **Chain complex tasks** | Clarify → Research → Document → Implement → Test → Validate → Commit |
+
+---
+
+## Common Workflows
+
+### Adding a Feature
+`Clarify → Research → Document → Implement → Test → Update Indexes → Validate`
+
+1. **Clarify requirements** — Ask if scope or approach is ambiguous
+2. **Check research docs** — Look for relevant domain knowledge
+3. **Create FEAT-xxx.md** — Document What/Why/How before coding
+4. **Implement** — Update "Implementation Notes" as you work
+5. **Test** — Verify feature works as documented
+6. **Update indexes** — Add to `FEATURES.md`, `FEATURE-MAP.md`
+7. **Validate** — Run documentation validation checklist
+
+### Fixing a Bug
+`Locate → Investigate → Fix → Document → Validate`
+
+1. **Find the feature doc** — Which FEAT-xxx.md owns this code?
+2. **Check Known Issues** — Has this been seen before?
+3. **Fix the bug** — Implement the solution
+4. **Update Known Issues** — Document what happened and the fix
+
+### Continuing Previous Work
+`Read Context → Resume → Update`
+
+1. **Read CURRENT.md** — What was in progress? Any blockers?
+2. **Read relevant FEAT-xxx.md** — Refresh on Implementation Notes
+3. **Resume work** — Continue from where you left off
+4. **Update CURRENT.md** — Before ending session, capture state
+
+---
+
+## Key Files
 
 | File | Purpose | When to Read |
 |------|---------|--------------|
@@ -99,23 +141,7 @@ When the user describes what they want, you:
 
 ---
 
-## Documentation Rules
-
-**When creating features:**
-- Create `/docs/features/FEAT-xxx.md` using the template
-- Add to `/docs/FEATURES.md` index
-- Add to `/docs/FEATURE-MAP.md` if has dependencies
-- Update `/docs/CURRENT.md` if active work
-
-**When fixing bugs:**
-- Document in FEAT-xxx.md "Known Issues" section
-- Describe fix and prevention strategy
-
-**After major work:**
-- Validate all indexes updated
-- Verify dependencies are bidirectional
-
-### Naming Conventions
+## Naming Conventions
 
 - `FEAT-###` - User-facing features
 - `API-###` - API endpoints or integrations
@@ -123,14 +149,14 @@ When the user describes what they want, you:
 
 ---
 
-## Quick Reference
+## Critical Anti-Patterns
 
-| I need to... | Action |
-|-------------|--------|
-| Add a feature | Create `FEAT-xxx.md` → Implement → Update indexes |
-| Fix a bug | Find FEAT-xxx.md → Fix → Update "Known Issues" |
-| Understand system | Read `architecture/overview.md` → Check `FEATURE-MAP.md` |
-| See current work | Read `CURRENT.md` |
+| Don't | Do Instead |
+|-------|------------|
+| Document after implementing | Create FEAT-xxx.md first |
+| Skip dependency updates | Update FEATURE-MAP.md immediately |
+| Let FEAT-xxx.md exceed ~300 lines | Suggest splitting to user |
+| Forget CURRENT.md | Update before ending work |
 ```
 
 ### docs/CURRENT.md
