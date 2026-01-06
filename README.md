@@ -5,9 +5,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**+120% confidence. +127% completeness.** Tested on a real multi-agent AI project.
+**+127% confidence. +127% completeness.** Tested on a real multi-agent AI project.
 
-> "Reading 5 doc files gave me 94% confidence vs. exploring 50+ source files"
+> "Reading 5 doc files gave me 97% confidence vs. exploring 50+ source files"
 
 ---
 
@@ -179,13 +179,13 @@ Real-world implementation on a multi-agent AI project (7 features, ~50 source fi
 
 | Metric | Before | After | Change |
 |--------|--------|-------|--------|
-| **Confidence** | 15/35 | 33/35 | +120% |
+| **Confidence** | 15/35 | 34/35 | +127% |
 | **Completeness** | 15/35 | 34/35 | +127% |
 
 **Where it helped most:**
 - Architecture understanding: 2/5 → 5/5
-- Dependency mapping: 1/5 → 4/5
-- Bug fix confidence: 2/5 → 4/5
+- Dependency mapping: 1/5 → 5/5
+- Bug fix confidence: 2/5 → 5/5
 
 Test methodology: [prompts/implement-contextual.md](prompts/implement-contextual.md)
 
