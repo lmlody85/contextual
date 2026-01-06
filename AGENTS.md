@@ -63,12 +63,20 @@ The user describes intent. You handle the documentation.
 6. **Update research docs** — If bug revealed reusable insights
 
 ### Continuing Previous Work
-`Read Context → Resume → Update → Validate`
+`Read Context → Resume → Update`
 
 1. **Read CURRENT.md** — What was in progress? Any blockers?
 2. **Read relevant FEAT-xxx.md** — Refresh on Implementation Notes
 3. **Resume work** — Continue from where you left off
 4. **Update CURRENT.md** — Before ending session, capture state
+
+### Conducting Research
+`Research → Document → Index`
+
+1. **Do the research** — Gather information, analyze findings
+2. **Create research doc** — `docs/research/[topic-name].md`
+3. **Add to index** — Update `docs/research/README.md` (Quick Find + All Research)
+4. **Link from features** — If relevant, add to FEAT-xxx.md Research References
 
 ---
 
@@ -158,6 +166,8 @@ Each feature has ONE self-contained document: `/docs/features/FEAT-xxx.md`
 ---
 
 ## Documentation Validation
+
+**How to run:** Claude Code users say `validate docs`. Other tools: use checklist below.
 
 - [ ] Feature listed in `/docs/FEATURES.md`
 - [ ] Dependencies in `/docs/FEATURE-MAP.md` (bidirectional)
