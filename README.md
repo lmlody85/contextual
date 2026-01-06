@@ -85,9 +85,7 @@ FEAT-015 (User Profile)
 
 ### Option A: Repository Template
 
-Best for new projects. Get the full structure with all files.
-
-**1. Clone and initialize:**
+Best for new projects.
 
 ```bash
 git clone https://github.com/lmlody85/contextual.git my-project
@@ -95,40 +93,16 @@ cd my-project
 rm -rf .git && git init
 ```
 
-**2. Describe your project to AI:**
-
-Just tell your AI assistant what you want to build:
-
-```
-"I want to build a task management app with user authentication"
-```
-
-**The AI will:**
-1. Ask clarifying questions (OAuth vs password? What features?)
-2. Create `docs/architecture/overview.md` based on your answers
-3. Create your first feature doc (`FEAT-001-auth.md`)
-4. Implement the feature
-5. Update all indexes automatically
-6. Prompt you to validate docs
-
-**3. Keep building:**
-
-For each new feature, describe what you need. AI maintains context automatically—docs, indexes, and dependencies stay in sync.
-
-**4. Context grows with you:**
-
-Every decision gets captured. Next session, AI picks up exactly where you left off—no re-explaining, no repeated mistakes.
-
 ### Option B: Claude Code Skill
 
-Best for adding to existing projects with Claude Code.
+Best for existing projects with Claude Code.
 
 ```bash
 git clone https://github.com/lmlody85/contextual.git /tmp/contextual
 cp -r /tmp/contextual/.claude/skills/contextual ~/.claude/skills/
 ```
 
-Then in your project, ask: "Set up Contextual docs" or "Validate documentation"
+Then ask: "Set up Contextual docs"
 
 ### Option C: Implementation Prompt
 
@@ -136,9 +110,21 @@ Best for existing projects with any AI tool.
 
 1. Open [prompts/implement-contextual.md](prompts/implement-contextual.md) and copy its contents
 2. Paste into AI session in your target repo
-3. AI implements the framework
 
-**Optional:** Use [prompts/test-understanding.md](prompts/test-understanding.md) before and after to measure improvement. See [tested results](#tested-results) for real-world metrics.
+**Optional:** Use [prompts/test-understanding.md](prompts/test-understanding.md) to measure improvement.
+
+---
+
+## After Setup
+
+Describe what you want to build. The AI will:
+
+1. Ask clarifying questions
+2. Create architecture and feature docs
+3. Implement the feature
+4. Update all indexes automatically
+
+For each new feature, describe what you need. Context grows with you—every decision captured, no re-explaining next session.
 
 ---
 
