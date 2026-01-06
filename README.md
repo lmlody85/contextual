@@ -212,14 +212,10 @@ System scales linearly—individual docs don't grow with feature count.
 
 ## AI Tool Support
 
-Works with any AI coding assistant:
+Works with any AI coding assistant that reads markdown files.
 
-| Tool | Integration | Automation Level |
-|------|-------------|------------------|
-| **Claude Code** | Native via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/) | Full (hooks, skills, auto-validation) |
-| **Cursor** | Via `.cursorrules` | Manual validation |
-| **Copilot** | Via `.github/copilot-instructions.md` | Manual validation |
-| **Others** | Via [AGENTS.md](AGENTS.md) | Manual validation |
+- **Claude Code:** Full automation via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/)
+- **Cursor, Copilot, others:** Via [AGENTS.md](AGENTS.md)
 
 ---
 
