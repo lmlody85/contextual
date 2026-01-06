@@ -23,19 +23,9 @@ The user describes intent. You handle the documentation.
 
 | Principle | Action |
 |-----------|--------|
-| **Ask before assuming** | Use AskUserQuestion for ambiguous requirements, multiple approaches, or architectural decisions |
-| **Document as you go** | Create FEAT-xxx.md before implementing; update "Implementation Notes" during work |
-| **Chain complex tasks** | Clarify → Research → Document → Implement → Test → Validate → Commit |
-
----
-
-## Starting a New Project
-
-1. **Ask clarifying questions** — Scope, tech stack, requirements
-2. **Create architecture doc** — `docs/architecture/overview.md`
-3. **Create first feature doc** — `docs/features/FEAT-001-xxx.md`
-4. **Update indexes** — `FEATURES.md`, `FEATURE-MAP.md`
-5. **Implement** — Follow your documentation
+| **Ask before assuming** | Clarify ambiguous requirements before implementing |
+| **Document before coding** | Create FEAT-xxx.md first, then implement |
+| **Update as you go** | Keep "Implementation Notes" current during work |
 
 ---
 
@@ -68,7 +58,7 @@ The user describes intent. You handle the documentation.
 - List core components and responsibilities
 
 **When creating features:**
-- Create `/docs/features/FEAT-xxx.md` (use template as guide)
+- Create `/docs/features/FEAT-xxx.md` (see format below)
 - Add to `/docs/FEATURES.md` index
 - Add to `/docs/FEATURE-MAP.md` if has dependencies
 - Link to relevant research docs
@@ -131,53 +121,40 @@ Each feature has ONE self-contained document: `/docs/features/FEAT-xxx.md`
 
 ## Research & Domain Knowledge
 
-**Location:** `/docs/research/`
+**Location:** `/docs/research/` — Check `/docs/research/README.md` for index.
 
-Contains algorithms, design principles, and domain expertise that inform features.
+**Where to put knowledge:**
+- **Feature-specific** → Implementation Notes in FEAT-xxx.md
+- **Reusable across features** → Research docs
 
-### When to Check Research
-
-Before implementing domain features, making design decisions, debugging domain issues, or understanding "why we do it this way".
-
-### Finding Research
-
-**Quick Find:** Check `/docs/research/README.md` "Quick Find by Topic" section
-
-**Keyword Search:** `grep -r "keyword" docs/research/`
-
-**From Features:** Follow "Research References" links in FEAT-xxx.md files
-
-### Where to Put Knowledge
-
-**In Feature Docs (Implementation Notes):**
-- Decisions specific to THIS feature only
-- Why Option A was chosen over B for this case
-- Lessons learned during this implementation
-- Challenges and solutions specific to this feature
-
-**In Research Docs:**
-- Knowledge that applies to MULTIPLE features
-- General principles, patterns, or best practices
-- Domain expertise worth preserving and reusing
-- Information you'd reference from other features
-
-**Rule of thumb:** If you'd copy-paste the same info into another feature doc, it belongs in research.
+**Rule:** If you'd copy-paste the same info into multiple features, it belongs in research.
 
 ---
 
 ## Documentation Validation
 
-Catches missing indexes, broken links, and invalid dependencies.
+- [ ] Feature listed in `/docs/FEATURES.md`
+- [ ] Dependencies in `/docs/FEATURE-MAP.md` (bidirectional)
+- [ ] All links valid
+- [ ] All files in "Files Changed" exist
 
-**For Claude Code:** Say "validate docs" or wait for automatic prompt
+---
 
-**For other tools, check manually:**
+## Critical Anti-Patterns
 
-- [ ] Feature is listed in `/docs/FEATURES.md`
-- [ ] Feature is in `/docs/FEATURE-MAP.md` if it has dependencies
-- [ ] All dependencies are bidirectional (A depends on B → B lists A as dependent)
-- [ ] All research doc links are valid
-- [ ] All files in "Files Changed" section exist
+| Don't | Why | Do Instead |
+|-------|-----|------------|
+| Document after implementing | Decisions get lost, rationale forgotten | Create FEAT-xxx.md first |
+| Skip dependency updates | Breaks impact analysis | Update FEATURE-MAP.md immediately |
+| Let FEAT-xxx.md exceed ~300 lines | Loses "self-contained" benefit, too much context | Suggest splitting to user |
+| Forget CURRENT.md | Next session loses context | Update before ending work |
+
+### When to Suggest Splitting a Feature
+
+If a FEAT-xxx.md is growing large (300+ lines) or covers multiple distinct concerns, suggest to the user:
+- Split into FEAT-xxx-a.md and FEAT-xxx-b.md
+- Update dependencies between the new features
+- Update indexes
 
 ---
 
