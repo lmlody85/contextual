@@ -177,7 +177,7 @@ Real-world test on a Swift/Metal audio visualizer (7 features, ~50 source files)
 | New feature scenario | 2/5 | 5/5 | +3 |
 | **Total** | **14/35** | **35/35** | **+21** |
 
-**Biggest improvement:** Dependencies (+4) — from guessing to explicit relationships.
+> "Transformed understanding from speculation based on naming conventions to precise knowledge of data flow, decisions, and dependencies."
 
 Test methodology: [prompts/test-understanding.md](prompts/test-understanding.md)
 
