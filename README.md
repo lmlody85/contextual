@@ -7,7 +7,7 @@
 
 **+120% confidence. +127% completeness.** Tested on a real multi-agent AI project.
 
-> "Reading 5 doc files (~15 min) gave me 94% confidence vs. exploring 50+ source files (estimated 2-3 hours)"
+> "Reading 5 doc files gave me 94% confidence vs. exploring 50+ source files"
 
 ---
 
