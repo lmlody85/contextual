@@ -23,9 +23,20 @@ The user describes intent. You handle the documentation.
 
 | Principle | Action |
 |-----------|--------|
-| **Ask before assuming** | Clarify ambiguous requirements before implementing |
+| **Ask before assuming** | Clarify ambiguous requirements (use AskUserQuestion or equivalent) |
 | **Document before coding** | Create FEAT-xxx.md first, then implement |
 | **Update as you go** | Keep "Implementation Notes" current during work |
+| **Chain complex tasks** | Clarify → Research → Document → Implement → Test → Validate → Commit |
+
+---
+
+## Starting a New Project
+
+1. **Ask clarifying questions** — Scope, tech stack, requirements
+2. **Create architecture doc** — `docs/architecture/overview.md`
+3. **Create first feature doc** — `docs/features/FEAT-001-xxx.md`
+4. **Update indexes** — `FEATURES.md`, `FEATURE-MAP.md`
+5. **Implement** — Follow your documentation
 
 ---
 
@@ -121,11 +132,27 @@ Each feature has ONE self-contained document: `/docs/features/FEAT-xxx.md`
 
 ## Research & Domain Knowledge
 
-**Location:** `/docs/research/` — Check `/docs/research/README.md` for index.
+**Location:** `/docs/research/`
 
-**Where to put knowledge:**
-- **Feature-specific** → Implementation Notes in FEAT-xxx.md
-- **Reusable across features** → Research docs
+### Finding Research
+
+**Quick Find:** Check `/docs/research/README.md` "Quick Find by Topic" section
+
+**Keyword Search:** `grep -r "keyword" docs/research/`
+
+**From Features:** Follow "Research References" links in FEAT-xxx.md files
+
+### Where to Put Knowledge
+
+**In Feature Docs (Implementation Notes):**
+- Decisions specific to THIS feature only
+- Why Option A was chosen over B for this case
+- Lessons learned during this implementation
+
+**In Research Docs:**
+- Knowledge that applies to MULTIPLE features
+- General principles, patterns, or best practices
+- Domain expertise worth preserving and reusing
 
 **Rule:** If you'd copy-paste the same info into multiple features, it belongs in research.
 
