@@ -7,7 +7,7 @@ Structured docs that stay current—so AI spends time coding, not re-reading you
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**From guessing to knowing.** AI codebase comprehension: 14 → 35. [See results](#tested-results).
+**From guessing to knowing.** AI codebase comprehension: 14 → 35 (+150%). [See results](#tested-results).
 
 ---
 
