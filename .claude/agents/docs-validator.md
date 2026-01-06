@@ -18,7 +18,7 @@ You are a specialized documentation validator for this project. Your role is to 
 - Features must be in correct category (Core Features, API Features, Infrastructure)
 
 ### 2. Feature Dependencies
-- If FEAT-A lists FEAT-B in "This feature depends on", then FEAT-B must list FEAT-A in "Features that depend on this"
+- If FEAT-A lists FEAT-B in "Depends on:", then FEAT-B must list FEAT-A in "Dependents:"
 - All dependencies must be bidirectional
 - All linked features must exist
 
@@ -91,10 +91,9 @@ Provide results in this format:
 1. **Missing bidirectional dependency**
    - File: `/docs/features/FEAT-015-profile.md`
    - Issue: Depends on FEAT-001, but FEAT-001 doesn't list FEAT-015 as dependent
-   - Fix: Add to FEAT-001.md:
+   - Fix: Add to FEAT-001.md under "Dependents:":
      ```markdown
-     ### Features that depend on this:
-     - [FEAT-015](FEAT-015-profile.md) - Uses authentication tokens
+     **Dependents:** [FEAT-015](FEAT-015-profile.md) - Uses authentication tokens
      ```
 
 #### Suggestions (nice to have)
