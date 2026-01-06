@@ -1,47 +1,47 @@
 # Contextual
 
-> **Documentation that writes itself.** AI creates and maintains docs as you build.
+> A context management framework for AI agents
+
+Structured documentation that stays current—so AI spends time coding, not re-reading your codebase.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**+127% confidence. +127% completeness.** Tested on a real multi-agent AI project.
-
-> "Reading 5 doc files gave me 97% confidence vs. exploring 50+ source files"
+**+127% context confidence.** 5 doc files vs. 50+ source files. Tested on a real multi-agent project.
 
 ---
 
 ## The Problem
 
-AI-assisted development without structure leads to chaos:
+AI-assisted development creates context chaos:
 
-- **No documentation** — AI forgets context between sessions, repeats mistakes
-- **AI guesses instead of asks** — Builds the wrong thing, requires rework
-- **Manual documentation** — You spend time writing instead of building
-- **Documentation drift** — Docs become stale, AI gets confused
+- **Context loss** — AI forgets between sessions, repeats the same mistakes
+- **Messy artifacts** — Docs pile up without structure, AI can't find what it needs
+- **Constant re-reading** — AI scans the whole codebase to understand one feature
+- **Lost decisions** — Why was this built this way? Nobody remembers
 
-**Result:** You either skip documentation (and pay later) or waste time maintaining it yourself.
+**Result:** As your project grows, AI gets slower and less reliable.
 
 ---
 
 ## The Solution
 
-Contextual is a documentation framework that **AI creates and maintains automatically**:
+Contextual gives AI **structured context that scales with your project**:
 
-| You do | AI does |
-|--------|---------|
-| Describe what you want | Ask clarifying questions |
-| Review and approve | Create architecture & feature docs |
-| Make decisions | Update indexes, track dependencies |
-| Build features | Keep everything in sync |
+- **Self-contained docs** — Each feature in one file, AI loads only what it needs
+- **Always current** — AI updates docs as it builds, no manual maintenance
+- **Dependency tracking** — AI knows what connects to what, avoids breaking changes
+- **Decision history** — Implementation notes preserve the "why" forever
+
+AI creates and maintains everything. You review and approve.
 
 ---
 
 ## How It Works
 
-### Self-Contained Feature Docs
+### One Feature, One File
 
-**Benefit:** AI loads only what it needs—no circular dependencies, no context pollution.
+**Context benefit:** AI loads only what it needs—no circular dependencies, no context pollution.
 
 Each feature gets ONE document (`FEAT-xxx.md`) containing everything: what, why, how, dependencies, known issues, and decisions made.
 
@@ -56,9 +56,9 @@ Each feature gets ONE document (`FEAT-xxx.md`) containing everything: what, why,
 ## Implementation Notes — Decisions and rationale
 ```
 
-### Reusable Research Library
+### Shared Knowledge Library
 
-**Benefit:** Domain knowledge stays DRY—update once, referenced everywhere.
+**Context benefit:** Domain knowledge stays DRY—update once, referenced everywhere.
 
 ```
 docs/research/
@@ -67,9 +67,9 @@ docs/research/
 └── api-design-principles.md   → Referenced by all API features
 ```
 
-### Dependency Tracking
+### Dependency Graph
 
-**Benefit:** Understand impact before making changes—see what breaks if you modify a feature.
+**Context benefit:** AI understands impact before making changes—sees what breaks if it modifies a feature.
 
 ```
 FEAT-001 (Login)
@@ -113,16 +113,11 @@ Just tell your AI assistant what you want to build:
 
 **3. Keep building:**
 
-For each new feature, describe what you need. The AI handles documentation, indexes, and dependencies automatically.
+For each new feature, describe what you need. AI maintains context automatically—docs, indexes, and dependencies stay in sync.
 
-**4. You stay in control:**
+**4. Context grows with you:**
 
-The AI asks before making big decisions:
-- Which authentication approach? (OAuth, passwords, magic links)
-- How should sharing work? (invite links, email, direct add)
-- What permissions model? (view-only, edit, admin)
-
-Your answers get documented in feature files for future reference.
+Every decision gets captured. Next session, AI picks up exactly where you left off—no re-explaining, no repeated mistakes.
 
 ### Option B: Claude Code Skill
 
@@ -147,7 +142,7 @@ See [tested results](#tested-results) for real-world improvement metrics.
 
 ---
 
-## Documentation Structure
+## Context Structure
 
 ```
 your-project/
@@ -179,10 +174,10 @@ Real-world implementation on a multi-agent AI project (7 features, ~50 source fi
 
 | Metric | Before | After | Change |
 |--------|--------|-------|--------|
-| **Confidence** | 15/35 | 34/35 | +127% |
-| **Completeness** | 15/35 | 34/35 | +127% |
+| **Context confidence** | 15/35 | 34/35 | +127% |
+| **Context completeness** | 15/35 | 34/35 | +127% |
 
-**Where it helped most:**
+**Biggest context gains:**
 - Architecture understanding: 2/5 → 5/5
 - Dependency mapping: 1/5 → 5/5
 - Bug fix confidence: 2/5 → 5/5
@@ -193,9 +188,9 @@ Test methodology: [prompts/implement-contextual.md](prompts/implement-contextual
 
 ## Performance
 
-### Token Efficiency
+### Context Efficiency
 
-AI spends more time coding, less time reading:
+AI spends time coding, not re-reading:
 
 | Task | Contextual | Single README | Wiki |
 |------|------------|---------------|------|
