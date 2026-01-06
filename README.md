@@ -150,21 +150,15 @@ your-project/
 ├── docs/
 │   ├── features/          # Self-contained feature docs (FEAT-xxx.md)
 │   ├── research/          # Reusable domain knowledge
-│   └── architecture/      # System design, contracts, testing, ADRs
+│   └── architecture/
+│       ├── overview.md    # System design
+│       ├── contracts.md   # API patterns, data schemas (optional)
+│       └── testing.md     # Test strategy, commands (optional)
 ├── prompts/               # Reusable prompts for AI agents
 └── .claude/               # Claude Code automation (optional)
 ```
 
 Full structure details in [AGENTS.md](AGENTS.md).
-
-### Architecture Docs (Optional)
-
-| File | Purpose |
-|------|---------|
-| `contracts.md` | API patterns, data schemas, agent interfaces |
-| `testing.md` | Test commands, patterns, coverage targets |
-
-Create these when your project has established patterns worth documenting.
 
 ---
 
