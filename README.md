@@ -124,10 +124,11 @@ Every decision gets captured. Next session, AI picks up exactly where you left o
 Best for adding to existing projects with Claude Code.
 
 ```bash
-cp -r .claude/skills/contextual ~/.claude/skills/
+git clone https://github.com/lmlody85/contextual.git
+cp -r contextual/.claude/skills/contextual ~/.claude/skills/
 ```
 
-Then ask: "Set up Contextual docs" or "Validate documentation"
+Then in your project, ask: "Set up Contextual docs" or "Validate documentation"
 
 ### Option C: Implementation Prompt
 
