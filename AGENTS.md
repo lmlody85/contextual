@@ -30,13 +30,45 @@ The user describes intent. You handle the documentation.
 
 ---
 
-## Starting a New Project
+## Common Workflows
+
+### Starting a New Project
+`Clarify → Document Architecture → Document First Feature → Implement`
 
 1. **Ask clarifying questions** — Scope, tech stack, requirements
 2. **Create architecture doc** — `docs/architecture/overview.md`
 3. **Create first feature doc** — `docs/features/FEAT-001-xxx.md`
 4. **Update indexes** — `FEATURES.md`, `FEATURE-MAP.md`
 5. **Implement** — Follow your documentation
+
+### Adding a Feature
+`Clarify → Research → Document → Implement → Test → Update Indexes → Validate`
+
+1. **Clarify requirements** — Ask if scope or approach is ambiguous
+2. **Check research docs** — Look for relevant domain knowledge
+3. **Create FEAT-xxx.md** — Document What/Why/How before coding
+4. **Implement** — Update "Implementation Notes" as you work
+5. **Test** — Verify feature works as documented
+6. **Update indexes** — Add to `FEATURES.md`, `FEATURE-MAP.md`
+7. **Validate** — Run documentation validation checklist
+
+### Fixing a Bug
+`Locate → Investigate → Fix → Document → Validate`
+
+1. **Find the feature doc** — Which FEAT-xxx.md owns this code?
+2. **Check Known Issues** — Has this been seen before?
+3. **Investigate root cause** — Check research docs for domain context
+4. **Fix the bug** — Implement the solution
+5. **Update Known Issues** — Document what happened and the fix
+6. **Update research docs** — If bug revealed reusable insights
+
+### Continuing Previous Work
+`Read Context → Resume → Update → Validate`
+
+1. **Read CURRENT.md** — What was in progress? Any blockers?
+2. **Read relevant FEAT-xxx.md** — Refresh on Implementation Notes
+3. **Resume work** — Continue from where you left off
+4. **Update CURRENT.md** — Before ending session, capture state
 
 ---
 
@@ -187,13 +219,14 @@ If a FEAT-xxx.md is growing large (300+ lines) or covers multiple distinct conce
 
 ## Quick Reference
 
-| I need to... | Action |
-|-------------|--------|
-| Start new project | Ask questions → Create `architecture/overview.md` → Create first `FEAT-xxx.md` → Implement |
-| Add a feature | Clarify if vague → Create `FEAT-xxx.md` → Implement → Update indexes → Validate |
-| Fix a bug | Find FEAT-xxx.md → Fix → Update "Known Issues" section |
-| Understand system | Read `architecture/overview.md` → Check `FEATURE-MAP.md` |
-| See current work | Read `CURRENT.md` |
+| I need to... | Go to |
+|-------------|-------|
+| Start new project | [Starting a New Project](#starting-a-new-project) |
+| Add a feature | [Adding a Feature](#adding-a-feature) |
+| Fix a bug | [Fixing a Bug](#fixing-a-bug) |
+| Continue previous work | [Continuing Previous Work](#continuing-previous-work) |
+| Understand system | Read `architecture/overview.md` → `FEATURE-MAP.md` |
+| Find a feature | Check `FEATURES.md` index |
 
 ---
 
