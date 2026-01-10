@@ -1,6 +1,7 @@
 ---
 name: contextual
 description: AI-native documentation framework. Use when scaffolding docs for a new project, validating existing documentation structure, or when asked about Contextual framework setup and best practices.
+context: fork
 ---
 
 # Contextual

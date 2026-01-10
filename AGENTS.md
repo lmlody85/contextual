@@ -12,10 +12,10 @@ The user describes intent. You handle the documentation.
 
 ---
 
-**Tool-specific supplements** (optional):
+**Tool-specific supplements** (create as needed):
 - **Claude Code:** [CLAUDE.md](CLAUDE.md) — hooks, sub-agents, automation
-- **Cursor:** [.cursorrules](.cursorrules) — Cursor-specific rules
-- **Copilot:** [.github/copilot-instructions.md](.github/copilot-instructions.md) — Copilot guidance
+- **Cursor:** `.cursorrules` — Cursor-specific rules
+- **Copilot:** `.github/copilot-instructions.md` — Copilot guidance
 
 ---
 
@@ -27,6 +27,41 @@ The user describes intent. You handle the documentation.
 | **Document before coding** | Create FEAT-xxx.md first, then implement |
 | **Update as you go** | Keep "Implementation Notes" current during work |
 | **Chain complex tasks** | Clarify → Research → Document → Implement → Test → Validate → Commit |
+
+---
+
+## Clarifying Questions
+
+Before starting work, ask questions when requirements are ambiguous. Use your tool's question mechanism (AskUserQuestion, chat, etc.).
+
+### For New Features
+
+| Uncertainty | Example Questions |
+|-------------|-------------------|
+| **Scope** | "Should this include X, or is that a separate feature?" |
+| **Users** | "Who is the primary user? Are there secondary users?" |
+| **Behavior** | "What should happen when [edge case]?" |
+| **Technical approach** | "Should we use [A] or [B]? Trade-offs are..." |
+| **Dependencies** | "This will require [X]. Should I include that, or assume it exists?" |
+| **Priority** | "There are several approaches. Want me to document options first?" |
+
+### For Research Tasks
+
+| Uncertainty | Example Questions |
+|-------------|-------------------|
+| **Depth vs breadth** | "Deep dive on one aspect, or survey of the whole area?" |
+| **Focus** | "Which aspect matters most: performance, security, UX?" |
+| **Output** | "Summary doc, comparison table, or recommendation with rationale?" |
+| **Sources** | "Should I stick to official docs, or include community resources?" |
+
+### When NOT to Ask
+
+- Requirements are clear and specific
+- You've already asked about this topic
+- The answer is obvious from context
+- Asking would just delay obvious work
+
+**Rule:** One round of clarifying questions per task. Batch your questions, don't ask one at a time.
 
 ---
 
@@ -69,6 +104,8 @@ The user describes intent. You handle the documentation.
 2. **Read relevant FEAT-xxx.md** — Refresh on Implementation Notes
 3. **Resume work** — Continue from where you left off
 4. **Update CURRENT.md** — Before ending session, capture state
+
+> **Tool-specific:** Some tools support native session resume (see supplements). CURRENT.md remains authoritative for cross-tool handoffs.
 
 ### Conducting Research
 `Research → Document → Index`
