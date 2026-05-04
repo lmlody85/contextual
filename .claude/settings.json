@@ -1,5 +1,37 @@
 {
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "At the start of this session, quickly check if documentation might be out of sync. Run: git log --oneline -5 to see recent commits. If any commits since the last session touched files in docs/ or created/modified source files without corresponding doc updates, briefly mention this to the user and suggest running 'validate docs'. Be brief \u2014 just flag potential drift, don't run full validation unless asked."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/scripts/post-feature-reminder.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/scripts/pr-merge-validator.sh"
+          }
+        ]
+      }
+    ]
   }
 }

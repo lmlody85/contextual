@@ -1,7 +1,16 @@
 ---
 name: docs-validator
-description: Validates documentation consistency after changes
-tools: [Read, Glob, Grep]
+description: Validates documentation consistency across the project. Checks feature indexes, bidirectional dependencies, link validity, and research doc completeness. Run after merges, PR creation, or major feature work.
+tools: [Read, Glob, Grep, Bash]
+model: sonnet
+effort: low
+examples:
+  - validate docs
+  - check documentation consistency
+  - lint docs
+  - are my docs in sync
+  - check if documentation is up to date
+  - run doc validation
 ---
 
 # Documentation Validator Agent

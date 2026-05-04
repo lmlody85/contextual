@@ -93,16 +93,17 @@ cd my-project
 rm -rf .git && git init
 ```
 
-### Option B: Claude Code Skill
+### Option B: Claude Code Automation
 
-Best for existing projects with Claude Code.
+Best for existing projects with Claude Code. Installs the full automation suite (skill, agent, slash commands, hooks).
 
 ```bash
 git clone https://github.com/lmlody85/contextual.git /tmp/contextual
-cp -r /tmp/contextual/.claude/skills/contextual ~/.claude/skills/
+cp -r /tmp/contextual/.claude /your/project/
+cp /tmp/contextual/CLAUDE.md /your/project/
 ```
 
-Then ask: "Set up Contextual docs"
+Then ask: "Set up Contextual docs" or run `/scaffold-contextual`.
 
 ### Option C: Implementation Prompt
 
@@ -200,7 +201,23 @@ System scales linearly—individual docs don't grow with feature count.
 
 Works with any AI coding assistant that reads markdown files.
 
-**Claude Code** gets full automation via [CLAUDE.md](CLAUDE.md) + [Skill](.claude/skills/contextual/).
+### Claude Code (Full Automation)
+
+| Layer | What it does | Configured in |
+|-------|--------------|---------------|
+| **Skill** | Auto-suggested when working in `docs/` | [.claude/skills/contextual/](.claude/skills/contextual/) |
+| **Agent** | `docs-validator` checks consistency on demand | [.claude/agents/docs-validator.md](.claude/agents/docs-validator.md) |
+| **Slash commands** | `/new-feat`, `/validate-docs`, `/scaffold-contextual` | [.claude/commands/](.claude/commands/) |
+| **Hooks** | SessionStart drift check + PostToolUse feature reminder + PostToolUse PR/merge validation (all command-type, silent when not triggered) | [.claude/settings.json](.claude/settings.json) |
+| **CI workflow** | Validates every PR to main (catches external merges) | [.github/workflows/docs-validation.yml](.github/workflows/docs-validation.yml) |
+
+See [CLAUDE.md](CLAUDE.md) for the full automation guide.
+
+### Other Tools
+
+- **Cursor:** Create `.cursorrules` from AGENTS.md
+- **Copilot:** Create `.github/copilot-instructions.md` from AGENTS.md
+- **Any AI tool:** Use [prompts/implement-contextual.md](prompts/implement-contextual.md) for setup
 
 ---
 

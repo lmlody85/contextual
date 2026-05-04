@@ -2,6 +2,9 @@
 name: contextual
 description: AI-native documentation framework. Use when scaffolding docs for a new project, validating existing documentation structure, or when asked about Contextual framework setup and best practices.
 context: fork
+allowed-tools: Read Write Edit Glob Grep Bash
+argument-hint: "scaffold docs | validate docs | setup Contextual"
+paths: "docs/**,AGENTS.md,CLAUDE.md,FEATURE-MAP.md,FEATURES.md"
 ---
 
 # Contextual
