@@ -1,0 +1,138 @@
+name: Documentation Validation
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-docs:
+    name: Validate Contextual docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required structure
+        run: |
+          echo "=== Checking required files ==="
+          MISSING=0
+          for file in AGENTS.md docs/CURRENT.md docs/FEATURES.md docs/FEATURE-MAP.md docs/research/README.md; do
+            if [ -f "$file" ]; then
+              echo "✓ $file"
+            else
+              echo "✗ MISSING: $file"
+              MISSING=$((MISSING + 1))
+            fi
+          done
+          if [ $MISSING -gt 0 ]; then
+            echo ""
+            echo "❌ $MISSING required file(s) missing. Run 'set up Contextual' to scaffold."
+            exit 1
+          fi
+          echo "✓ All required files present"
+
+      - name: Check feature index consistency
+        run: |
+          echo ""
+          echo "=== Checking feature index ==="
+          ISSUES=0
+
+          FEAT_FILES=$(find docs/features -name "FEAT-*.md" 2>/dev/null || true)
+
+          if [ -z "$FEAT_FILES" ]; then
+            echo "ℹ No feature files found yet — skipping index check"
+            exit 0
+          fi
+
+          # Check each feature file is listed in FEATURES.md
+          for feat in $FEAT_FILES; do
+            FEAT_ID=$(basename "$feat" .md | grep -o 'FEAT-[0-9]*')
+            if grep -q "$FEAT_ID" docs/FEATURES.md; then
+              echo "✓ $FEAT_ID in FEATURES.md"
+            else
+              echo "✗ $FEAT_ID not listed in docs/FEATURES.md"
+              ISSUES=$((ISSUES + 1))
+            fi
+          done
+
+          # Check each FEATURES.md entry has a corresponding file
+          while IFS= read -r line; do
+            FEAT_ID=$(echo "$line" | grep -o 'FEAT-[0-9]*' || true)
+            if [ -n "$FEAT_ID" ]; then
+              FEAT_FILE=$(find docs/features -name "${FEAT_ID}*.md" 2>/dev/null | head -1)
+              if [ -z "$FEAT_FILE" ]; then
+                echo "✗ $FEAT_ID listed in FEATURES.md but file not found"
+                ISSUES=$((ISSUES + 1))
+              fi
+            fi
+          done < docs/FEATURES.md
+
+          if [ $ISSUES -gt 0 ]; then
+            echo ""
+            echo "❌ $ISSUES feature index issue(s) found."
+            exit 1
+          fi
+          echo "✓ Feature index consistent"
+
+      - name: Check internal links
+        run: |
+          echo ""
+          echo "=== Checking internal markdown links ==="
+          BROKEN=0
+
+          while IFS= read -r file; do
+            while IFS= read -r link; do
+              # Skip external URLs and pure anchors
+              if echo "$link" | grep -qE '^https?://|^#'; then
+                continue
+              fi
+              DIR=$(dirname "$file")
+              TARGET="$DIR/$link"
+              TARGET="${TARGET%%#*}"
+              if [ ! -e "$TARGET" ]; then
+                echo "✗ Broken link in $file: $link"
+                BROKEN=$((BROKEN + 1))
+              fi
+            done < <(grep -oP '\[.*?\]\(\K[^)]+' "$file" 2>/dev/null || true)
+          done < <(find docs -name "*.md")
+
+          if [ $BROKEN -gt 0 ]; then
+            echo ""
+            echo "❌ $BROKEN broken link(s) found."
+            exit 1
+          fi
+          echo "✓ All internal links valid"
+
+      - name: Check research index
+        run: |
+          echo ""
+          echo "=== Checking research index ==="
+
+          RESEARCH_FILES=$(find docs/research -name "*.md" ! -name "README.md" 2>/dev/null || true)
+
+          if [ -z "$RESEARCH_FILES" ]; then
+            echo "ℹ No research files found — skipping"
+            exit 0
+          fi
+
+          ISSUES=0
+          for doc in $RESEARCH_FILES; do
+            BASENAME=$(basename "$doc")
+            if grep -q "$BASENAME" docs/research/README.md; then
+              echo "✓ $BASENAME in research/README.md"
+            else
+              echo "✗ $BASENAME not indexed in docs/research/README.md"
+              ISSUES=$((ISSUES + 1))
+            fi
+          done
+
+          if [ $ISSUES -gt 0 ]; then
+            echo ""
+            echo "❌ $ISSUES research doc(s) not indexed."
+            exit 1
+          fi
+          echo "✓ Research index consistent"
+
+      - name: Summary
+        if: success()
+        run: echo "✅ All documentation checks passed."

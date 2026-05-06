@@ -4,6 +4,8 @@ You are implementing the Contextual documentation framework on this repository. 
 
 **Optional:** Run [test-understanding.md](test-understanding.md) before and after to measure improvement.
 
+**Tool note:** If you're using Claude Code, see the "Claude Code Automation" section at the end for the full automation setup (hooks, agents, slash commands, CI workflow). For other AI tools, follow the core steps below.
+
 ---
 
 ## Your Task
@@ -13,6 +15,7 @@ You are implementing the Contextual documentation framework on this repository. 
 3. Document existing features (create FEAT-xxx.md for each major feature)
 4. Populate architecture overview
 5. Update all indexes
+6. **(Claude Code only)** Set up the automation layer — see end of doc
 
 ## Directory Structure to Create
 
@@ -454,3 +457,60 @@ Shared interfaces and patterns used across features.
 - Capture dependencies accurately - this is critical for the framework
 - Don't create research docs yet - only create them when knowledge applies to multiple features
 - If existing documentation exists, incorporate relevant content into the new structure
+
+---
+
+## Claude Code Automation (Optional)
+
+If the target project uses Claude Code, also set up the automation layer. This adds slash commands, agents, hooks, and CI validation on top of the core framework.
+
+### Files to Create
+
+```
+project/
+├── CLAUDE.md                                       # Claude Code supplement (extends AGENTS.md)
+├── .claude/
+│   ├── settings.json                               # Hook configuration
+│   ├── settings.local.json                         # Permission allowlist (gitignored)
+│   ├── README.md                                   # Config overview
+│   ├── agents/
+│   │   └── docs-validator.md                       # Validation subagent
+│   ├── commands/
+│   │   ├── new-feat.md                             # /new-feat <id> <name>
+│   │   ├── validate-docs.md                        # /validate-docs
+│   │   └── scaffold-contextual.md                  # /scaffold-contextual
+│   ├── skills/
+│   │   └── contextual/
+│   │       ├── SKILL.md                            # Framework skill (auto-suggested in docs/)
+│   │       ├── SETUP.md                            # Scaffolding procedure
+│   │       └── VALIDATE.md                         # Validation checklist
+│   └── hooks/
+│       ├── README.md                               # Design rationale
+│       └── scripts/
+│           ├── post-feature-reminder.sh            # Triggers on doc edits
+│           └── pr-merge-validator.sh               # Triggers on PR/merge commands
+└── .github/
+    └── workflows/
+        └── docs-validation.yml                     # CI workflow for external merges
+```
+
+### Copy from the Contextual Repository
+
+The simplest way to bootstrap the automation layer is to copy `.claude/`, `CLAUDE.md`, and `.github/workflows/docs-validation.yml` from the [Contextual repo](https://github.com/lmlody85/contextual). All files are designed to work as-is in any project.
+
+### Three-Layer Validation Strategy
+
+| Layer | Catches | When |
+|-------|---------|------|
+| **In-session hooks** (settings.json) | PR/merge commands run via Claude | Real-time |
+| **SessionStart hook** | Drift from external changes | On next Claude session |
+| **GitHub Actions** | Everything, including external merges | On every PR to main |
+
+See `docs/architecture/ci-validation.md` (in the Contextual repo) for the full strategy doc.
+
+### Verification
+
+After setup, verify the automation works:
+
+1. **Slash commands work:** Run `/validate-docs` — should invoke the docs-validator agent.
+2. **CI works:** Open a test PR — the docs-validation workflow should run and pass.
