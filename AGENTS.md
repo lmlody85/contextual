@@ -3,7 +3,7 @@
 > **You create and maintain documentation as you build**
 
 When the user describes what they want, you:
-1. **Ask clarifying questions** before implementing
+1. **Clarify what changes the work** — make routine judgment calls yourself; ask only when different readings would lead to materially different work
 2. **Create documentation** (architecture, features, research) as you work
 3. **Keep everything in sync** (indexes, dependencies, links)
 4. **Validate consistency** after major work
@@ -23,16 +23,30 @@ The user describes intent. You handle the documentation.
 
 | Principle | Action |
 |-----------|--------|
-| **Ask before assuming** | Clarify ambiguous requirements (use AskUserQuestion or equivalent) |
+| **Clarify what matters** | Make routine calls yourself and record the assumption; ask (one batched round) when readings differ materially |
 | **Document before coding** | Create FEAT-xxx.md first, then implement |
 | **Update as you go** | Keep "Implementation Notes" current during work |
 | **Chain complex tasks** | Clarify → Research → Document → Implement → Test → Validate → Commit |
 
 ---
 
+## Working Style
+
+Make routine judgment calls yourself and record the assumption in the feature doc's Implementation Notes. Ask the user only when different readings would lead to materially different work, and batch those questions into one round.
+
+Deliver the scope the user set. A pre-existing bug, a refactor opportunity, or an improvement you notice while working is not part of this change: record it under Known Issues (if it belongs to a feature) or in CURRENT.md → Next, and mention it in your summary.
+
+Documentation records what you verified. If tests were not run or a step was skipped, say so in Implementation Notes and CURRENT.md rather than reporting the work as done.
+
+Keep docs proportionate to the work: fill the required sections, write "None" where there is nothing to say, and don't pad with filler sections or restated summaries. When updating an index or an existing doc, edit the relevant entry rather than rewriting the whole file.
+
+After feature work, run validation yourself (it is read-only) and fix what it reports. Don't end a turn by asking whether to validate.
+
+---
+
 ## Clarifying Questions
 
-Before starting work, ask questions when requirements are ambiguous. Use your tool's question mechanism (AskUserQuestion, chat, etc.).
+Ask when the answer would change what you build. Use your tool's question mechanism (AskUserQuestion, chat, etc.).
 
 ### For New Features
 
@@ -59,7 +73,7 @@ Before starting work, ask questions when requirements are ambiguous. Use your to
 - Requirements are clear and specific
 - You've already asked about this topic
 - The answer is obvious from context
-- Asking would just delay obvious work
+- A reasonable assumption works — proceed and record it in Implementation Notes
 
 **Rule:** One round of clarifying questions per task. Batch your questions, don't ask one at a time.
 
@@ -202,11 +216,19 @@ Each feature has ONE self-contained document: `/docs/features/FEAT-xxx.md`
 
 **Rule:** If you'd copy-paste the same info into multiple features, it belongs in research.
 
+### Keeping Knowledge Useful
+
+Research docs and Implementation Notes are your memory across sessions, so they are worth maintaining:
+- Record corrections and confirmed approaches alike, with why they mattered
+- Don't record what the code or git history already shows
+- Update an existing note rather than adding a near-duplicate
+- Delete notes that turn out to be wrong
+
 ---
 
 ## Documentation Validation
 
-**How to run:** Claude Code users say `validate docs`. Other tools: use checklist below.
+**How to run:** `scripts/validate-docs.sh` checks everything mechanical below and prints what to fix. Claude Code users can also say `validate docs`. Without the script, use the checklist.
 
 - [ ] Feature listed in `/docs/FEATURES.md`
 - [ ] Dependencies in `/docs/FEATURE-MAP.md` (bidirectional)

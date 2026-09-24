@@ -1,106 +1,42 @@
 # Claude Code Instructions
 
-> **Supplement to [AGENTS.md](AGENTS.md)** — Claude Code automation only
+@AGENTS.md
 
-## Quick Reference
+> Claude Code reads only CLAUDE.md when one exists, so the import above is what loads AGENTS.md. Keep it. Everything below is Claude Code automation only.
+
+## Automation
 
 | Asset | Location | Trigger |
 |-------|----------|---------|
-| Docs Validator Agent | `.claude/agents/docs-validator.md` | "validate docs" |
-| Contextual Skill | `.claude/skills/contextual/` | "set up Contextual", "scaffold docs", "validate docs" |
-| Post-Feature Hook | `.claude/hooks/post-feature-reminder.md` | Auto (PostToolUse) |
+| Validation script | `scripts/validate-docs.sh` | Run after feature work, or say "validate docs" |
+| Docs Validator Agent | `.claude/agents/docs-validator.md` | "validate docs" — runs the script, then the judgment checks |
+| Contextual Skill | `.claude/skills/contextual/` | "set up Contextual", "scaffold docs" |
+| Post-feature validation | `.claude/hooks/post-feature-reminder.md` | After feature work, run `scripts/validate-docs.sh` yourself; don't ask whether to |
 
 **Config:** [.claude/README.md](.claude/README.md)
 
 ---
 
-## Session Management
+## Session Handoff
 
-Claude Code supports native session continuation:
-
-| Command | Use Case |
-|---------|----------|
-| `claude --continue` | Resume last session with full context |
-| `claude --resume <id>` | Resume specific session |
-| `/plan` | Enter plan mode for complex features |
-| `Ctrl+B` | Run task in background while continuing |
-
-**Cross-tool handoff:** CURRENT.md remains authoritative for handoffs to other AI tools (Cursor, Copilot). Update it before ending sessions.
+Native session resume (`claude --continue`) restores your own context, but other tools can't read it. Update `docs/CURRENT.md` before ending a session.
 
 ---
 
-## Custom Agents
+## Task Lists
 
-### docs-validator
-Validates documentation consistency across the project.
-
-**Invoke:** "validate docs" or "check documentation"
-
-**Checks:**
-- All features indexed in FEATURES.md
-- Dependencies bidirectional in FEATURE-MAP.md
-- All links valid
-- Files in "Files Changed" exist
-
----
-
-## Skills
-
-### contextual
-AI-native documentation framework scaffolding and validation.
-
-**Location:** `.claude/skills/contextual/`
-
-**Commands:**
-- "set up Contextual" or "scaffold docs" — Initialize framework
-- "validate docs" — Run validation checks
-
-**Note:** Skills hot-reload automatically (no restart needed).
-
----
-
-## Hooks
-
-### post-feature-reminder (PostToolUse)
-
-Automatically detects feature work completion and prompts validation.
-
-**Triggers on:**
-- New `FEAT-*.md` file created
-- TODO section changed to "Feature complete"
-- 2+ documentation files modified
-
-**Action:** Prompts "Would you like me to validate docs?" (asks, doesn't auto-run)
-
----
-
-## TodoWrite Integration
-
-When creating todo lists for feature work, include validation as final step:
+When you create a task list for feature work, the last task is validation:
 
 ```
 1. Research existing patterns
 2. Create FEAT-xxx.md
 3. Implement feature
 4. Update indexes
-5. Validate documentation  ← Always include
+5. Run scripts/validate-docs.sh and fix what it reports
 ```
 
 ---
 
-## AskUserQuestion Guidance
+## Clarifying Questions
 
-Claude Code has access to `AskUserQuestion` for interactive clarification. Use it proactively:
-
-**For new features:**
-- Scope boundaries unclear
-- Multiple valid technical approaches
-- User experience trade-offs
-- Integration points ambiguous
-
-**For research:**
-- Depth vs breadth trade-off
-- Which aspects to prioritize
-- Output format preferences
-
-See AGENTS.md "Clarifying Questions" section for specific prompts.
+Use `AskUserQuestion` when different readings of the request would lead to materially different work: scope boundaries, a choice between technical approaches with real trade-offs, or an ambiguous integration point. Batch questions into one round. Otherwise make the call, proceed, and record the assumption in the feature doc's Implementation Notes.

@@ -1,7 +1,6 @@
 ---
 name: contextual
 description: AI-native documentation framework. Use when scaffolding docs for a new project, validating existing documentation structure, or when asked about Contextual framework setup and best practices.
-context: fork
 ---
 
 # Contextual
@@ -45,10 +44,9 @@ When user asks to set up Contextual, scaffold docs, or create documentation stru
 
 When user asks to validate docs, check documentation, or find doc issues:
 
-1. Read [VALIDATE.md](VALIDATE.md) for the validation checklist
-2. Run each check
-3. Report issues found
-4. Suggest fixes
+1. Run `scripts/validate-docs.sh` from the project root if it exists; it covers the mechanical checks
+2. Read [VALIDATE.md](VALIDATE.md) for the checks that need judgment (and for the full checklist when the script is absent)
+3. Report issues found and fix them, or suggest fixes if the user asked for a report only
 
 ## More Info
 

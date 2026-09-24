@@ -42,21 +42,17 @@ For each `FEAT-xxx.md` file:
 ## Validation Procedure
 
 ```bash
-# 1. Check structure exists
-for file in AGENTS.md docs/CURRENT.md docs/FEATURES.md docs/FEATURE-MAP.md docs/research/README.md docs/architecture/overview.md; do
-  if [ -f "$file" ]; then
-    echo "EXISTS: $file"
-  else
-    echo "MISSING: $file"
-  fi
-done
-
-# 2. List all feature docs
-ls docs/features/FEAT-*.md 2>/dev/null || echo "No feature docs yet"
-
-# 3. Check for orphaned features (in folder but not in FEATURES.md)
-# Manual: Compare ls output with FEATURES.md content
+scripts/validate-docs.sh
 ```
+
+The script covers every mechanical item above (structure, index membership, bidirectional dependencies, Files Changed paths, research index, link validity) and exits 1 when something must be fixed. What it cannot judge, check by reading:
+
+- Features sit under the right heading in FEATURES.md (Core / API / Infrastructure)
+- FEATURE-MAP.md relationships match the feature docs
+- Research docs appear in both Quick Find and All Research
+- No circular dependencies
+
+If the script is missing, copy it from the Contextual repo (`scripts/validate-docs.sh`) or work through the checklist manually.
 
 ## Common Issues
 
