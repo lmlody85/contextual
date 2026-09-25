@@ -5,7 +5,8 @@ Scaffold the documentation structure in a new project.
 ## Quick Setup
 
 ```bash
-mkdir -p docs/features docs/research docs/architecture
+mkdir -p docs/features docs/research docs/architecture scripts
+touch docs/features/.gitkeep
 ```
 
 ## Required Files
@@ -22,6 +23,7 @@ Create these files:
 | `docs/FEATURE-MAP.md` | Dependency graph |
 | `docs/research/README.md` | Domain knowledge index |
 | `docs/architecture/overview.md` | System design |
+| `scripts/validate-docs.sh` | Mechanical doc checks (copy from the Contextual repo: `scripts/validate-docs.sh`) |
 
 ## Minimal Starter Templates
 
@@ -113,6 +115,7 @@ Create these files:
 After scaffolding:
 
 1. Copy AGENTS.md template from [implement-contextual.md](../../../prompts/implement-contextual.md)
+   - If the project has a `CLAUDE.md`, add `@AGENTS.md` as its first line; Claude Code ignores AGENTS.md otherwise
 2. Fill in architecture/overview.md with system description
 3. Add relevant categories to research/README.md
 4. Create first feature doc when work begins

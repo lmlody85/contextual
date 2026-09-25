@@ -100,9 +100,12 @@ Best for existing projects with Claude Code.
 ```bash
 git clone https://github.com/lmlody85/contextual.git /tmp/contextual
 cp -r /tmp/contextual/.claude/skills/contextual ~/.claude/skills/
+mkdir -p scripts && cp /tmp/contextual/scripts/validate-docs.sh scripts/
 ```
 
 Then ask: "Set up Contextual docs"
+
+If your project already has a `CLAUDE.md`, put `@AGENTS.md` on its first line. Claude Code reads only CLAUDE.md when one exists.
 
 ### Option C: Implementation Prompt
 
@@ -117,12 +120,12 @@ Best for existing projects with any AI tool.
 
 ## After Setup
 
-Describe what you want to build. The AI will:
+Describe what you want to build, and why: the larger goal and who it's for. Current models plan better when they know the intent, not just the task. The AI will:
 
-1. Ask clarifying questions
+1. Ask only the questions that would change what it builds
 2. Create architecture and feature docs
 3. Implement the feature
-4. Update all indexes automatically
+4. Update all indexes and run `scripts/validate-docs.sh`
 
 For each new feature, describe what you need. Context grows with you—every decision captured, no re-explaining next session.
 
@@ -141,6 +144,9 @@ your-project/
 │       ├── contracts.md   # API patterns, data schemas (optional)
 │       └── testing.md     # Test strategy, commands (optional)
 ├── prompts/               # Reusable prompts for AI agents
+├── scripts/
+│   └── validate-docs.sh   # Mechanical doc checks (indexes, links, dependencies)
+├── CLAUDE.md              # Claude Code entry point; imports AGENTS.md
 └── .claude/               # Claude Code automation (optional)
 ```
 
